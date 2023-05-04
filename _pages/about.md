@@ -6,4 +6,5 @@ You can find my CV here: [Di Qiu's Curriculum Vitae](https://github.com/QiuDi233
 
 **I am looking for research internship of summer 2023. Feel free to email me for potential opportunities.**
 
-[Email](mailto:qiudi@stu.pku.edu.cn) / [Github](https://github.com/QiuDi233) / [Wechat](https://github.com/QiuDi233/QiuDi233.github.io/blob/master/images/wechat.jpg) / [Blog](https://blog.csdn.net/qd1813100174?spm=1000.2115.3001.5343)
+[Email](mailto:2007700059@e.gzhu.edu.cn) / [Github](https://github.com/aichifandefan) / [Wechat](https://github.com/QiuDi233/QiuDi233.github.io/blob/master/images/wechat.jpg) / [Blog](https://blog.csdn.net/qd1813100174?spm=1000.2115.3001.5343)
+
