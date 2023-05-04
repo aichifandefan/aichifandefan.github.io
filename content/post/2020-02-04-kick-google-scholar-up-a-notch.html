@@ -1,0 +1,127 @@
+---
+title: "Kick Google Scholar Up a Notch"
+subtitle: "Plot annual publications and citations by authorship position"
+author: "Sam Zipper"
+date: 2019-02-27
+output: html_document
+---
+
+
+
+<p><strong>Date:</strong> Published February 27, 2019; updated July 26, 2019 and February 4, 2020</p>
+<p>(If you just want the code, <a href="https://github.com/samzipper/SelfAnalysis/blob/master/PlotPubsAndCitations.R">go here</a>.)</p>
+<p>Maybe you’re applying for a job or going up for tenure, and are trying to demonstrate your research output in a unique way. In academia, the number of publications and citations are commonly used as indicators of productivity and influence - the hypothesis being that productive people are writing more papers and influential people are being cited more. The <a href="https://thebibliomagician.wordpress.com/2018/03/23/is-it-time-to-bury-the-h-index/">limitations</a> of these <a href="http://blog.impactstory.org/four-great-reasons-to-stop-caring-so-much-about-the-h-index/">metrics</a> have <a href="http://blogs.nature.com/nautilus/2007/10/the_hindex_has_its_flaws.html">long been noted</a>, so I won’t belabor them here.</p>
+<p>Nevertheless, some people in positions of power care about publications and citations, so we might as well show these metrics in a user-friendly manner. I like making graphs so I decided to put a couple simple graphs on the front page of my CV. Since one of the critiques of citation analysis is that it doesn’t account for different authorship roles, I wanted to separately show the data for papers on which I was the first author since I made the primary intellectual contribution for those studies. I don’t know if putting graphs in CVs is normal, but I was complimented on it during multiple job interviews, so in the end I’m glad I bothered.</p>
+<p>Let’s set up our environment. We’ll use the <a href="https://github.com/jkeirstead/scholar"><code>scholar</code> package</a> to get the data, then rearrange it a bit with <code>dplyr</code>, <code>reshape2</code>, and <code>stringr</code>, and finally plot with <code>ggplot2</code>. So, let’s load some packages!</p>
+<pre class="r"><code>require(scholar)  # interface with google scholar
+require(ggplot2)  # for plotting
+require(dplyr)    # for data tidying
+require(stringr)  # for working with string data</code></pre>
+<p>To get your data from Google Scholar, first you have to determine your Google Scholar ID. You can get this from the characters after the <code>=</code> in your Google Scholar URL. For instance, <a href="https://scholar.google.com/citations?user=XXIpO1YAAAAJ">my Google Scholar URL</a> is <code>https://scholar.google.com/citations?user=XXIpO1YAAAAJ</code>, so I know my ID is <code>XXIpO1YAAAAJ</code>.</p>
+<pre class="r"><code>me &lt;- &quot;XXIpO1YAAAAJ&quot;</code></pre>
+<p>It’s easy to get a list of all your publications using the <code>get_publications()</code> function:</p>
+<pre class="r"><code>pubs_raw &lt;- 
+  scholar::get_publications(me)</code></pre>
+<p>While Google Scholar’s great, it makes some mistakes. For accuracy’s sake I’ll do a little cleaning up of this list. Specifically, I want to: (1) remove any non-journal articles such as theses; (2) remove anypre-prints that have not gone through peer review yet; and (3) adjust the years for an article that were published as preprints in 2019 but actually published in 2020 - Google Scholar puts these in the year the preprint was posted.</p>
+<pre class="r"><code>pubs &lt;-
+  pubs_raw %&gt;% 
+  # (1) remove theses; these don&#39;t have a year
+  subset(is.finite(year)) %&gt;% 
+  # (2) get rid of preprints - all mine are on EarthArXiv
+  subset(journal != &quot;EarthArXiv&quot;)
+
+# (3) update year - figure out the pubid by looking at the pubs_raw data frame
+pubs$year[pubs$pubid == &quot;fQNAKQ3IYiAC&quot;] &lt;- 2020</code></pre>
+<p>The <code>author</code> field has a comma-separated list of all the authors for each publication. Since I want to separately plot publications I first-authored, I need to isolate the first author for each paper:</p>
+<pre class="r"><code>pubs$first_author &lt;- 
+  # the &#39;author&#39; column is a factor by default, so first convert to character
+  pubs$author %&gt;% 
+  as.character() %&gt;% 
+  # split based on commas and grab the first author only
+  strsplit(split=&quot;[,]&quot;) %&gt;% 
+  sapply(function(x) x[1])
+
+# look at the results
+pubs$first_author</code></pre>
+<pre><code>##  [1] &quot;SC Zipper&quot;          &quot;SC Zipper&quot;          &quot;SC Zipper&quot;         
+##  [4] &quot;M Motew&quot;            &quot;SC Zipper&quot;          &quot;Y Kang&quot;            
+##  [7] &quot;SC Zipper&quot;          &quot;SC Zipper&quot;          &quot;EG Booth&quot;          
+## [10] &quot;J Qiu&quot;              &quot;P Lamontagne-Hallé&quot; &quot;J Qiu&quot;             
+## [13] &quot;B Breyer&quot;           &quot;JE Vonk&quot;            &quot;LD Somers&quot;         
+## [16] &quot;SC Zipper&quot;          &quot;SC Zipper&quot;          &quot;SC Zipper&quot;         
+## [19] &quot;SC Zipper&quot;          &quot;J Qiu&quot;              &quot;SC Zipper&quot;         
+## [22] &quot;C Zhang&quot;            &quot;SC Zipper&quot;          &quot;SC Zipper&quot;         
+## [25] &quot;SC Zipper&quot;          &quot;M Motew&quot;            &quot;SC Zipper&quot;         
+## [28] &quot;CL Tague&quot;           &quot;SC Zipper&quot;          &quot;X Chen&quot;            
+## [31] &quot;KE Wallen&quot;          &quot;MA Nocco&quot;</code></pre>
+<p>Uh-oh! I’m referred to as both “S Zipper” and “SC Zipper”. Fortunately, I don’t have any co-authors named Zipper, so I will claim anything including Zipper. If you have a more common last name, you might have to refine your search here.</p>
+<pre class="r"><code>my_name &lt;- &quot;Zipper&quot;
+
+pubs$first_author_me &lt;-
+  pubs$first_author %&gt;% 
+  stringr::str_detect(pattern = my_name)</code></pre>
+<p>We now have my publication history, and for every paper we know whether I am the first author or not. You can refine your search even more - for example, if you are a PI, you may want to create an additional category for publications by your students. You’d just need to remember their names.</p>
+<p>Now, let’s work on the citations. The <code>pubid</code> field can be used to get annual citations for each of my publications. We’ll loop through all my papers, extract the citations by year, and put them into a big data frame. There’s probably a vectorized way to do this with <code>apply</code> but I didn’t bother because I don’t have that many papers.</p>
+<pre class="r"><code>for (i in 1:length(pubs$pubid)){
+  # grab citations for this paper
+  paper_cites &lt;- 
+    scholar::get_article_cite_history(id = me, 
+                                      article = pubs$pubid[i])
+  
+  # make master data frame
+  if (i == 1){
+    all_cites &lt;- paper_cites
+  } else {
+    all_cites &lt;- rbind(all_cites, paper_cites)
+  }
+}
+
+head(all_cites)</code></pre>
+<pre><code>##   year cites        pubid
+## 1 2017    13 cFHS6HbyZ2cC
+## 2 2018    19 cFHS6HbyZ2cC
+## 3 2019    31 cFHS6HbyZ2cC
+## 4 2020     7 cFHS6HbyZ2cC
+## 5 2017    14 3s1wT3WcHBgC
+## 6 2018    15 3s1wT3WcHBgC</code></pre>
+<p>Now we know the annual citations for each paper, and can join it with <code>pubs</code> to add information about the first author.</p>
+<pre class="r"><code>all_cites &lt;- 
+  dplyr::left_join(all_cites,
+                   pubs[, c(&quot;pubid&quot;, &quot;first_author_me&quot;)],
+                   by=&quot;pubid&quot;)</code></pre>
+<p>Let’s just re-arrange a bit to prepare for plotting.</p>
+<pre class="r"><code># for the plots, we want annual sums
+pubs_yr &lt;-
+  pubs %&gt;% 
+  dplyr::group_by(year, first_author_me) %&gt;% 
+  dplyr::summarize(number = n(),            # could use any field
+                   metric = &quot;Publications&quot;) # this will come in handy later
+cites_yr &lt;-
+  all_cites %&gt;% 
+  dplyr::group_by(year, first_author_me) %&gt;% 
+  dplyr::summarize(number = sum(cites),
+                   metric = &quot;Citations&quot;)
+
+# to make a faceted plot, we&#39;ll want to combine these into a single data frame
+pubs_and_cites &lt;- rbind(pubs_yr, cites_yr)</code></pre>
+<p>Finally - let’s make some graphs!</p>
+<pre class="r"><code>ggplot(pubs_and_cites, aes(x=factor(year), y=number, fill=first_author_me)) +
+  geom_bar(stat=&quot;identity&quot;) +
+  facet_wrap(~factor(metric, levels=c(&quot;Publications&quot;, &quot;Citations&quot;)),
+             scales = &quot;free_y&quot;) +
+  # everything below here is just aesthetics
+  scale_x_discrete(name = &quot;Year&quot;) +
+  scale_y_continuous(name = &quot;Number&quot;) +
+  scale_fill_manual(name = &quot;First Author&quot;, 
+                    values = c(&quot;TRUE&quot;=&quot;#e6194b&quot;, &quot;FALSE&quot;=&quot;#0082c8&quot;),
+                    labels = c(&quot;TRUE&quot;=&quot;Zipper&quot;, &quot;FALSE&quot;=&quot;Other&quot;)) +
+  theme_bw(base_size=12) +
+  theme(panel.grid = element_blank(),
+        strip.background = element_blank(),
+        strip.text = element_text(size = 11, face=&quot;bold&quot;),
+        axis.title = element_text(size = 10, face=&quot;bold&quot;),
+        legend.title = element_text(size = 10, face=&quot;bold&quot;),
+        legend.position = c(0.01,0.99),
+        legend.justification = c(0, 1))</code></pre>
+<p><img src="/post/2020-02-04-kick-google-scholar-up-a-notch_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Voila! Now, you can add it to your CV, or just print it out and hang it on the wall above your bed (I don’t judge).</p>
