@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Haizhou Xu's Peosonal Homepage"
+title                    : "Haizhou Xu's Personal Homepage"
 title_separator          : "-"
 name                     : &name "Haizhou Xu"
 description              : &description "a third year undergraduate student from GuangZhou University"
