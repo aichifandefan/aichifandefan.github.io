@@ -1,74 +1,31 @@
-# The website for the HydroEcology of Anthropogenic Landscapes (HEAL) group at the Kansas Geological Survey/University of Kansas (HEAL@KGS).
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8ab46337-8345-446c-8b42-45d8d73db848/deploy-status)](https://app.netlify.com/sites/samzipper/deploys)
+A Github Pages template for academic websites. This was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License. See LICENSE.md.
 
-Currently deployed at [samzipper.com](https://www.samzipper.com), with [code on GitHub](https://github.com/samzipper/website-HEAL).
+I think I've got things running smoothly and fixed some major bugs, but feel free to file issues or make pull requests if you want to improve the generic template / theme.
 
- * Website made with Hugo and `blogdown` as described here: https://bookdown.org/yihui/blogdown/
+### Note: if you are using this repo and now get a notification about a security vulnerability, delete the Gemfile.lock file. 
 
-## Theme reference: 
-https://sourcethemes.com/academic/docs
+# Instructions
 
-Icons:
- * fab: https://fontawesome.com/icons?d=gallery&s=brands
- * fas, far: https://fontawesome.com/icons?d=gallery&s=regular,solid
- * ai: https://jpswalsh.github.io/academicons/
+1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
+1. Fork [this repository](https://github.com/academicpages/academicpages.github.io) by clicking the "fork" button in the top right. 
+1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
+1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
+1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
+1. Check status by going to the repository settings, in the "GitHub pages" section
+1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
 
-## To-Do List
- * Add dropdown menu to main page linking other resources
- * Lab logo
- * [Icon for browser tab](https://sourcethemes.com/academic/docs/customization/#website-icon)
- * Social media images
+See more info at https://academicpages.github.io/
 
-## Quick tips
- * Preview site: `blogdown::serve_site()`
- * Turn off preview: `servr::daemon_stop(1)`
- * Pushing site to internet is done automatically via Netlify
-  * To manually compile site: `blogdown::build_site()`
+## To run locally (not on GitHub Pages, to serve on your own computer)
 
-## Adding a publication
- * Make a folder with a somewhat descriptive name in the `content/publication` folder (e.g., ZhangEtAl-2020-ChinaVirtualWater)
- * From Zotero, export a .bib file for that publication into the folder with the same filename
- * Copy an `index.md` file from another folder and fill in all the content (most can be grabbed from .bib)
-    * in abstract, you might have to delete and backslashes (for example in front of `%`)
-    * For the PDF, if not available online put a link into the `static/PDFs` folder.
-    * If it should be on the main page, set `featured: true` (most recent 4 papers will be shown)
-	* use "Samuel C. Zipper" for my name in index.md since that is linked to my author profile.
- * Add a tag for which core research area it is part of. Options: ["Water and Agriculture", "Land Use/Land Cover Change", "Ephemeral Hydrology", "Stream-Aquifer Interactions", "Human-Environment Interface"]
- * For publication_types: 2 = journal article, 4 = report
+1. Clone the repository and made updates as detailed above
+1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
+1. Run `bundle clean` to clean up the directory (no need to run `--force`)
+1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
+1. Run `bundle exec jekyll liveserve` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
 
-## Adding a new person
- * Go `content/authors`
- * Copy `blank` folder and give it the person's name
- * Name their picture `avatar.png`
- * Edit `_index.md`
+# Changelog -- bugfixes and enhancements
 
-## New post from Rmarkdown
- * Copy the .Rmd for a recent post, for example "2022-01-02-work-tracking-update.Rmd"
- * Write your post and make sure you are happy with everything.
- * Knit the file in Rstudio. This will make a .html file in the posts folder and store all the image files in the static folder.
-	* The html file will have a weird header - that's OK.
- * Commit and push the changes to the web
- * Netlify should automatically render it. The URL will be https://www.samzipper.com/post/name_of_post/
+There is one logistical issue with a ready-to-fork template theme like academic pages that makes it a little tricky to get bug fixes and updates to the core theme. If you fork this repository, customize it, then pull again, you'll probably get merge conflicts. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch. 
 
-## Update Hugo and Academic Theme
- * Make copy of website repository in case something breaks.
- * Updating Hugo: this is not necessary when site is deployed to Netlify
-  * Check hugo version (`blogdown::hugo_version()`) and compare to current [release version](https://github.com/gohugoio/hugo/releases).
-    * `blogdown::update_hugo()`
-    * update version in `netlify.toml` file
- * Check version of academic theme: `themes/hugo-academic/data/academic.toml`
-  * If update necessary, download [latest release](https://github.com/gcushen/hugo-academic/releases) of hugo-academic and replace your `themes/hugo-academic` folder
-  * Fix all breaking changes from [hugo-academic release notes](https://sourcethemes.com/academic/updates/).
-	* Make sure you update `netlify.toml` with the number that Academic theme tells you to
-
-# Update history
- * 2020-06-10: update Academic to 4.8.0
- * 2019-12-31: update to 4.6.3
- * Original install: 4.4.0
-
-## Colors (https://brand.ku.edu/guidelines/color)
-KU colors:
-  * KU Blue #0051ba
-  * Crimson #e8000d
-  * Jayhawk yellow #ffc82d
-  * Signature grey #85898a
+To support this, all changes to the underlying code appear as a closed issue with the tag 'code change' -- get the list [here](https://github.com/academicpages/academicpages.github.io/issues?q=is%3Aclosed%20is%3Aissue%20label%3A%22code%20change%22%20). Each issue thread includes a comment linking to the single commit or a diff across multiple commits, so those with forked repositories can easily identify what they need to patch.
