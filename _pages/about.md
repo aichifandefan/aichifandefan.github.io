@@ -34,10 +34,10 @@ You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 - *2023.05*: &nbsp;🎉🎉 ‘MRP-Net: Seizure detection method based on modified recurrence plot and additive attention convolution neural network’ have been accepted by Biomedical Signal Processing and Control.
 - *2023.03*: &nbsp;🎉🎉 ‘Hyperbolic Music Transformer for Structured Music Generation’ have been accepted by IEEE Access.
 
-# 📝 Publications 
+# 📝 Publications
 
-- Self-Supervised Hyperbolic Metric Few-Shot Learning for Occult Lymph Node Metastasis Prediction in NSCLC
-**Haizhou Xu**, Jiaqi Wu, Yujia Yu, Wenkai Huang, Jiong Ni
+- Self-Supervised Hyperbolic Metric Few-Shot Learning for Occult Lymph Node Metastasis Prediction in NSCLC <br/>
+**Haizhou Xu**, Jiaqi Wu, Yujia Yu, Wenkai Huang, Jiong Ni <br/>
 *IEEE TRANSACTIONS ON MEDICAL IMAGING(under review)* | [paper](https://www.sciencedirect.com/science/article/pii/S1746809423005980)
 
 
