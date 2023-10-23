@@ -8,6 +8,13 @@ redirect_from:
   - /about.html
 ---
 
+{% if site.google_scholar_stats_use_cdn %}
+{% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
+{% else %}
+{% assign gsDataBaseUrl = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" %}
+{% endif %}
+{% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
+
 <span class='anchor' id='about-me'></span>
 
 I’m a senior student majoring in Robotics Engineering at [Guangzhou University](https://www.gzhu.edu.cn/). My research interest includes：
@@ -20,11 +27,11 @@ I am very fortunate to be advised by [Prof. Huang](https://jd.gzhu.edu.cn/info/1
 
 You can find my CV here:[ Yujia Yu’s Curriculum Vitae](../images/CV.pdf).
 
-
 # 🔥 News
-- *2023.10*: &nbsp;🎉🎉I received a national scholarship.
-- *2023.05*: &nbsp;🎉🎉‘MRP-Net: Seizure detection method based on modified recurrence plot and additive attention convolution neural network’ have been accepted by Biomedical Signal Processing and Control.
-- *2023.03*: &nbsp;🎉🎉‘Hyperbolic Music Transformer for Structured Music Generation’ have been accepted by IEEE Access.
+
+- *2023.10*: &nbsp;🎉🎉 I received a national scholarship.
+- *2023.05*: &nbsp;🎉🎉 ‘MRP-Net: Seizure detection method based on modified recurrence plot and additive attention convolution neural network’ have been accepted by Biomedical Signal Processing and Control.
+- *2023.03*: &nbsp;🎉🎉 ‘Hyperbolic Music Transformer for Structured Music Generation’ have been accepted by IEEE Access.
 
 # 📝 Publications
 
