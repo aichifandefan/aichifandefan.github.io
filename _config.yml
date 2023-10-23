@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Haizhou Xu"
   avatar           : "images/Haizhou-Xu.png"
-  bio              : "Mechanical and Electrical Engineering College"
+  bio              : # "Mechanical and Electrical Engineering College"
   location         : "Guangzhou, China"
   employer         :
   pubmed           : 
