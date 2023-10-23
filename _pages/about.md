@@ -37,17 +37,6 @@ You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 # 📝 Publications 
 
 
-
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">new</div><img src='../images/paper1.jpg' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-- [Hyperbolic Music Transformer for Structured Music Generation](https://ieeexplore.ieee.org/document/10070602?denied=)
-- Wenkai Huang,**Yujia Yu**, Haizhou Xu, **IEEE Access**
-- This paper proposes a Hyperbolic Music Transformer model, which considers the hierarchy in music and models the structured components of music in hyperbolic space. Meanwhile, in order for the network to have sufficient capacity to learn music data with hierarchical and power regular structure, a hyperbolic attention mechanism is proposed, which is an extension of the attention mechanism in hyperbolic space based on the definition of hyperboloid and Klein model. 
-</div>
-</div>
-
-
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">new</div><img src='../images/paper3.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
