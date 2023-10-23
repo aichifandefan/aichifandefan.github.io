@@ -41,12 +41,12 @@ You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 *IEEE TRANSACTIONS ON MEDICAL IMAGING(under review)* | [paper](../files/paper3.pdf)
 
 
-<div class='paper-box'><div><div class="paper-image"><div><img src='../images/paper3.png' alt="sym" width="100%"></div></div>
 <div class="paper-box">
   <div class="paper-image">
     <img src="../images/paper3.png" alt="sym" width="100%" />
   </div>
 </div>
+
 <br/>
 **Abstract:** Predicting occult lymph node metastasis in non-small cell lung cancer (NSCLC) patients before surgery is crucial for determining appropriate treatment plans. However, predicted occult lymph node metastases in NSCLC patients have been under-studied due to various challenges, such as the complexity and variability of lymph node characteristics. In addition, there is no publicly available pathologically confirmed predictive dataset of occult lymph node metastases in NSCLC patients for training and testing predictive algorithms. To address this challenge we retrospectively collect occult lymph node metastasis dataset (TJ-OLNM) that meet the criteria from NSCLC patients who undergo chest CT scans at Tongji Hospital of Tongji University between 2016 and 2021. Additionally, we introduce a novel self-supervised hyperbolic metric few-shot learning method, named Occult Lymph Node Metastasis Network (OLNM-Net), for accurate prediction of occult lymph node metastasis. In OLNM-Net, a self-supervised pretrained module is proposed to learn preliminary lymph node imaging features, and then a hyperbolic theory-based few-shot metric learning module is constructed to predict occult lymph node metastasis in NSCLC. We performed a comprehensive evaluation of the state-of-the-art prediction model and our OLNM-Net on the constructed TJ-OLNM dataset. The experimental results show that our OLNM-Net yields better performance in predicting occult lymph node metastasis in TJ-OLNM than traditional and other deep learning methods. This explores the possibility of preoperative prediction of occult lymph node metastasis in NSCLC from CT imaging features, providing a new scheme for the study of NSCLC disease.
 </div>
