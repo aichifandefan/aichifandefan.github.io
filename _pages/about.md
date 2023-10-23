@@ -28,7 +28,7 @@ You can find my CV here:[ Yujia Yu’s Curriculum Vitae](../images/CV.pdf).
 
 # 📝 Publications
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">new</div><img src='images/GA.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">new</div><img src='../images/paper1.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 - [Hyperbolic Music Transformer for Structured Music Generation](https://ieeexplore.ieee.org/document/10070602?denied=)
