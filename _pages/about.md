@@ -45,11 +45,21 @@ You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">new</div><img src='../images/paper2.pdf' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">new</div><img src='../images/paper2.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 - [MRP-Net: Seizure detection method based on modified recurrence plot and additive attention convolution neural network](https://www.sciencedirect.com/science/article/pii/S1746809423005980)
 - Wenkai Huang, **Haizhou Xu**, Yujia Yu, **Biomedical Signal Processing and Control**
+- This paper proposes a Hyperbolic Music Transformer model, which considers the hierarchy in music and models the structured components of music in hyperbolic space. Meanwhile, in order for the network to have sufficient capacity to learn music data with hierarchical and power regular structure, a hyperbolic attention mechanism is proposed, which is an extension of the attention mechanism in hyperbolic space based on the definition of hyperboloid and Klein model. 
+</div>
+</div>
+
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">new</div><img src='../images/paper3.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+- [Self-Supervised Hyperbolic Metric Few-Shot Learning for Occult Lymph Node Metastasis Prediction in NSCLC](https://www.sciencedirect.com/science/article/pii/S1746809423005980)
+- Haizhou Xu, Jiaqi Wu, **Yujia Yu**, Wenkai Huang, Jiong Ni, **IEEE TRANSACTIONS ON MEDICAL IMAGING(under review)**
 - This paper proposes a Hyperbolic Music Transformer model, which considers the hierarchy in music and models the structured components of music in hyperbolic space. Meanwhile, in order for the network to have sufficient capacity to learn music data with hierarchical and power regular structure, a hyperbolic attention mechanism is proposed, which is an extension of the attention mechanism in hyperbolic space based on the definition of hyperboloid and Klein model. 
 </div>
 </div>
