@@ -25,7 +25,7 @@ I’m a senior student majoring in Robotics Engineering at [Guangzhou University
 
 I am very fortunate to be advised by [Prof. Huang](https://jd.gzhu.edu.cn/info/1150/3954.htm) from Guangzhou University.
 
-You can find my CV here:[ Yujia Yu’s Curriculum Vitae](../images/CV.pdf).
+You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 
 
 # 🔥 News
