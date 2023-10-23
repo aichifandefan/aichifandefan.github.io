@@ -87,4 +87,6 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu** <br/>
 
 - *2020.09 - 2023.10 (now)*, Robot Engineering(BE), Guangzhou University. 
 
-<body><script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=FWcAvbJHBYyiUmF5Dy1peB6x7e_Go99fnOmyUDI7KA4"></script></body>
+<body>
+<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=FWcAvbJHBYyiUmF5Dy1peB6x7e_Go99fnOmyUDI7KA4&cl=ffffff&w=a"></script>
+</body>
