@@ -84,26 +84,28 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 
 <!-- # 💻 Projects -->
 # 💻 Blog
-# 我的博客页面
 
-这是我最近的研究：
-
-<div style="display: flex; justify-content: space-between;">
-  <img src="../images/paper1.jpg.png" style="width: 45%; border-radius: 10px;">
-  <img src="../images/paper2.png.png" style="width: 45%; border-radius: 10px;">
-</div>
-
-## 关于论文
-<div style="text-align: left;">
-  <h3>Sample Paper Title</h3>
-  <p>sample-repo PyTorch 8 Oct 2024</p>
-  <p>Brief description of the paper.</p>
-  <div style="display: inline-block; padding: 5px 10px; background-color: #eef; color: #0056b3; border-radius: 5px;">
-    Machine Learning
+<div class="paper-card">
+  <div class="paper-left">
+    <img src="../images/paper1.jpg" alt="Sample Image" class="paper-image">
   </div>
-  <div style="margin-top: 10px;">
-    <span style="font-size: 18px;">⭐ 322</span>
-    <span style="color: #777; font-size: 14px;">4.94 stars/hour</span>
+  <div class="paper-right">
+    <h3>Depth Pro: Sharp Monocular Metric Depth in Less Than a Second</h3>
+    <div class="paper-meta">
+      <span class="meta-item">apple/ml-depth-pro</span>
+      <span class="meta-item">• PyTorch</span>
+      <span class="meta-item">• 2 Oct 2024</span>
+    </div>
+    <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
+    <div class="tag">Monocular Depth Estimation</div>
+    <div class="paper-stats">
+      <span class="stars">⭐ 2,730</span>
+      <span class="rate">3.06 stars/hour</span>
+    </div>
+    <div class="paper-actions">
+      <a href="#" class="btn">Paper</a>
+      <a href="#" class="btn">Code</a>
+    </div>
   </div>
 </div>
 

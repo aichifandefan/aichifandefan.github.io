@@ -128,54 +128,65 @@ h1:before, .anchor:before {
 /* 卡片容器 */
 .paper-card {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto; /* 居中对齐整个卡片 */
-  }
-  
-  /* 顶部图片部分 */
-  .paper-header {
-    display: flex;
-    justify-content: space-between; /* 保证图片之间有一定距离 */
-    align-items: center;
     margin-bottom: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* 居中 */
   }
   
-  /* 图片样式 */
+  /* 左侧图片部分 */
+  .paper-left {
+    flex: 1; /* 让图片区域占用页面的适当比例 */
+  }
+  
   .paper-image {
-    width: 45%; /* 控制每张图片占据的宽度 */
-    height: auto; /* 保持图片比例 */
+    width: 100%;
+    max-width: 250px; /* 设置图片最大宽度 */
     border-radius: 10px;
+    object-fit: cover; /* 保证图片按比例缩放 */
   }
   
-  /* 论文信息部分 */
-  .paper-info {
-    text-align: left;
+  /* 右侧文本部分 */
+  .paper-right {
+    flex: 3; /* 让文本区域占用更大的比例 */
+    padding-left: 20px;
   }
   
-  .paper-info h3 {
+  .paper-right h3 {
     margin: 0;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: bold;
   }
   
   .paper-meta {
-    display: flex;
+    font-size: 14px;
+    color: #555;
     margin: 5px 0;
+  }
+  
+  .paper-meta .meta-item {
+    margin-right: 10px;
+  }
+  
+  .paper-stats {
+    margin-top: 10px;
+  }
+  
+  .stars {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .rate {
     font-size: 14px;
     color: #777;
   }
   
-  .meta-item {
-    margin-right: 10px;
-  }
-  
-  /* 标签部分 */
   .tag {
     display: inline-block;
     padding: 5px 10px;
@@ -186,18 +197,21 @@ h1:before, .anchor:before {
     margin-top: 10px;
   }
   
-  /* 统计部分 */
-  .paper-stats {
-    margin-top: 10px;
+  .paper-actions {
+    margin-top: 15px;
   }
   
-  .stars {
-    font-size: 18px;
-    font-weight: 600;
-    display: inline-block;
-  }
-  
-  .rate {
+  .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
     font-size: 14px;
-    color: #777;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
   }
