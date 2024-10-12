@@ -112,7 +112,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <div class="paper-card">
   <!-- 左侧图片部分 -->
   <div class="paper-left">
-    <img src="../images/paper1.jpg" alt="Sample Image" class="paper-image">
+    <img src="../images/paper2.png" alt="Sample Image" class="paper-image">
   </div>
 
   <!-- 右侧内容部分 -->
