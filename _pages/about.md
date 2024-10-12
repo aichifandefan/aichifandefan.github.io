@@ -84,25 +84,27 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 
 <!-- # 💻 Projects -->
 # 💻 Blog
-<!-- 插入卡片布局的 HTML -->
-<div class="paper-card">
-    <div class="paper-header">
-        <img src="../images/paper1.jpg" alt="Sample Image" class="paper-image">
-    </div>
-    <div class="paper-info">
-        <h3>Sample Paper Title</h3>
-        <div class="paper-meta">
-            <span class="meta-item">sample-repo</span>
-            <span class="meta-item">PyTorch</span>
-            <span class="meta-item">8 Oct 2024</span>
-        </div>
-        <p>Brief description of the paper.</p>
-        <div class="tag">Machine Learning</div>
-        <div class="paper-stats">
-            <span class="stars">⭐ 322</span>
-            <span class="rate">4.94 stars/hour</span>
-        </div>
-    </div>
+# 我的博客页面
+
+这是我最近的研究：
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="../images/paper1.jpg.png" style="width: 45%; border-radius: 10px;">
+  <img src="../images/paper2.png.png" style="width: 45%; border-radius: 10px;">
+</div>
+
+## 关于论文
+<div style="text-align: left;">
+  <h3>Sample Paper Title</h3>
+  <p>sample-repo PyTorch 8 Oct 2024</p>
+  <p>Brief description of the paper.</p>
+  <div style="display: inline-block; padding: 5px 10px; background-color: #eef; color: #0056b3; border-radius: 5px;">
+    Machine Learning
+  </div>
+  <div style="margin-top: 10px;">
+    <span style="font-size: 18px;">⭐ 322</span>
+    <span style="color: #777; font-size: 14px;">4.94 stars/hour</span>
+  </div>
 </div>
 
 Notion 数学公式 [Link](../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html)

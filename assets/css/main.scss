@@ -124,3 +124,80 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+/* 卡片容器 */
+.paper-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* 居中对齐整个卡片 */
+  }
+  
+  /* 顶部图片部分 */
+  .paper-header {
+    display: flex;
+    justify-content: space-between; /* 保证图片之间有一定距离 */
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* 图片样式 */
+  .paper-image {
+    width: 45%; /* 控制每张图片占据的宽度 */
+    height: auto; /* 保持图片比例 */
+    border-radius: 10px;
+  }
+  
+  /* 论文信息部分 */
+  .paper-info {
+    text-align: left;
+  }
+  
+  .paper-info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .paper-meta {
+    display: flex;
+    margin: 5px 0;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .meta-item {
+    margin-right: 10px;
+  }
+  
+  /* 标签部分 */
+  .tag {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #eef;
+    color: #0056b3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  /* 统计部分 */
+  .paper-stats {
+    margin-top: 10px;
+  }
+  
+  .stars {
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+  }
+  
+  .rate {
+    font-size: 14px;
+    color: #777;
+  }
