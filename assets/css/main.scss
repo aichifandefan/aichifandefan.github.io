@@ -129,7 +129,7 @@ h1:before, .anchor:before {
 .paper-card {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     background-color: #f9f9f9;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -146,7 +146,8 @@ h1:before, .anchor:before {
   
   /* 左侧图片部分 */
   .paper-left {
-    flex: 1;
+    flex: 1 0 250px; /* 确保图片部分占用固定宽度，不过多占用空间 */
+    margin-right: 20px; /* 添加右侧间距 */
   }
   
   .paper-image {
@@ -158,7 +159,7 @@ h1:before, .anchor:before {
   
   /* 右侧文本部分 */
   .paper-right {
-    flex: 2;
+    flex: 2; /* 右侧文本部分占据剩余的空间 */
     padding-left: 20px;
   }
   
