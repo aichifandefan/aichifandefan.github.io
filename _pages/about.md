@@ -82,16 +82,16 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 
 
 
-# 💻 Projects
+<!-- # 💻 Projects -->
 
 
 # 🎖 Honors and Awards
 
-- *2023.10* The First Prize Scholarship.
+- *2023.10* The First Prize Scholarship. (TOP 5%)
 
 # 📖 Educations
 
-- *2020.09 - 2023.10 (now)*, Robot Engineering(BE), Guangzhou University. 
+- *2020.09 - 2024.06 Robot Engineering(BE), Guangzhou University. 
 
 # 🦄 Welcome to my website
 <body>
