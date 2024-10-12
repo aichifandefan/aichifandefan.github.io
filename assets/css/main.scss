@@ -242,7 +242,7 @@ h1:before, .anchor:before {
     color: white;
     padding: 10px 15px;
     border-radius: 8px;
-    text-decoration: none;  /* 移除下划线 */
+    text-decoration: none !important;  /* 强制移除下划线 */
     margin-bottom: 10px;
     font-size: 14px;
     transition: background-color 0.3s ease;
@@ -261,7 +261,7 @@ h1:before, .anchor:before {
     color: white;
     padding: 10px 15px;
     border-radius: 8px;
-    text-decoration: none;  /* 移除下划线 */
+    text-decoration: none !important;  /* 强制移除下划线 */
     margin-bottom: 10px;
     font-size: 14px;
     transition: background-color 0.3s ease;
