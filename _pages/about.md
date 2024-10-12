@@ -84,7 +84,11 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 
 <!-- # 💻 Projects -->
 # 💻 Blog
+Notion 数学公式 [Link](../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html)
+
 Ubuntu 深度学习服务器配置教程 [link](../files/Blog/Ubuntu/Ubuntu.html)
+
+DDPM 公式推导 [Link](../files/Blog/DDPM%20Formula%20Derivation/DDPM%20Formula%20Derivation.html)
 
 # 🎖 Honors and Awards
 
