@@ -231,8 +231,21 @@ h1:before, .anchor:before {
     align-items: flex-end;
   }
   
-  .btn {
-    background-color: #007bff;
+  .paper {
+    background-color: #21A7EA;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 120px;
+    text-align: center;
+  }
+
+  .code {
+    background-color: #0297B1;
     color: white;
     padding: 10px 15px;
     border-radius: 8px;
@@ -244,6 +257,8 @@ h1:before, .anchor:before {
     text-align: center;
   }
   
+  
+
   .btn:hover {
     background-color: #0056b3;
   }

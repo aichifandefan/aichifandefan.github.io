@@ -142,8 +142,8 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 
     <!-- 按钮部分 -->
     <div class="button-group">
-      <a href="#" class="btn">Paper</a>
-      <a href="#" class="btn">Code</a>
+      <a href="#" class="paper">Paper</a>
+      <a href="#" class="code">Code</a>
     </div>
   </div>
 </div>
