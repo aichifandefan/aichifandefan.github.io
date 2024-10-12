@@ -110,9 +110,12 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   </div>
 </div> -->
 <div class="paper-card">
+  <!-- 左侧图片部分 -->
   <div class="paper-left">
-    <img src="../images/paper1.jpg" alt="Sample Image" class="paper-image">
+    <img src="path_to_your_image.png" alt="Sample Image" class="paper-image">
   </div>
+
+  <!-- 右侧内容部分 -->
   <div class="paper-right">
     <h3>Depth Pro: Sharp Monocular Metric Depth in Less Than a Second</h3>
     <div class="paper-meta">
@@ -121,26 +124,30 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
       <span class="meta-item">• 2 Oct 2024</span>
     </div>
     <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
+
+    <!-- 标签部分 -->
     <div class="tags">
       <span class="tag">Monocular Depth Estimation</span>
       <span class="tag">Test</span>
     </div>
-    <div class="paper-stats">
-      <span class="stars">⭐ 2,730</span>
-      <span class="rate">3.06 stars/hour</span>
-    </div>
-  </div>
-  <div class="paper-actions">
-    <div class="stars-box">
-      <span class="stars">⭐ 2,730</span>
-      <span class="rate">3.06 stars/hour</span>
-    </div>
-    <div class="button-group">
-      <a href="#" class="btn">Paper</a>
-      <a href="#" class="btn">Code</a>
+
+    <!-- 右侧星标和按钮部分 -->
+    <div class="paper-actions">
+      <!-- 星标部分 -->
+      <div class="stars-box">
+        <span class="stars">⭐ 2,730</span>
+        <span class="rate">3.06 stars/hour</span>
+      </div>
+
+      <!-- 按钮部分 -->
+      <div class="button-group">
+        <a href="#" class="btn">Paper</a>
+        <a href="#" class="btn">Code</a>
+      </div>
     </div>
   </div>
 </div>
+
 
 Notion 数学公式 [Link](../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html)
 
