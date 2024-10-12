@@ -29,30 +29,32 @@ I am very fortunate to be advised by [Prof. Huang](https://jd.gzhu.edu.cn/info/1
 You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 
 # 🔥 News
-
+- *2024.06*: &nbsp;🎉🎉 ‘Occult lymph node metastasis prediction in non-small cell lung cancer based self-supervised pretrained and hyperbolic theory’ have been accepted by **Applied Soft Computing**. [Link](https://www.sciencedirect.com/science/article/abs/pii/S1568494624007233) (Top Journal Q1 IF=7.2)
 - *2023.10*: &nbsp;🎉🎉 I received a first prize scholarship.
-- *2023.05*: &nbsp;🎉🎉 ‘MRP-Net: Seizure detection method based on modified recurrence plot and additive attention convolution neural network’ have been accepted by Biomedical Signal Processing and Control.
-- *2023.03*: &nbsp;🎉🎉 ‘Hyperbolic Music Transformer for Structured Music Generation’ have been accepted by IEEE Access.
+- *2023.05*: &nbsp;🎉🎉 ‘MRP-Net: Seizure detection method based on modified recurrence plot and additive attention convolution neural network’ have been accepted by **Biomedical Signal Processing and Control***. [Link](https://www.sciencedirect.com/science/article/abs/pii/S1746809423005980) (First Student Author) [Link] (Q1 IF=4.9)
+- *2023.03*: &nbsp;🎉🎉 ‘Hyperbolic Music Transformer for Structured Music Generation’ have been accepted by **IEEE Access**. [Link](https://ieeexplore.ieee.org/document/10070602) (Q2 IF=3.4)
 
 # 📝 Publications
 
-- Self-Supervised Hyperbolic Metric Few-Shot Learning for Occult Lymph Node Metastasis Prediction in NSCLC <br/>
-**Haizhou Xu**, Jiaqi Wu, Yujia Yu, Wenkai Huang, Jiong Ni <br/>
-*IEEE TRANSACTIONS ON MEDICAL IMAGING(under review)* | [paper](../files/paper3.pdf)
+- Occult lymph node metastasis prediction in non-small cell lung cancer based self-supervised pretrained and hyperbolic theory <br/>
+**Haizhou Xu**, Jiaqi Wu, Yujia Yu, Wenkai Huang*, Jiong Ni* <br/>
+*Applied Soft Computing* | [paper](../files/paper3.pdf)
 
 <div class="paper-box">
   <div class="paper-image">
+  <div class="badge">new
+  </div>
     <img src="../images/paper3.png" alt="sym" width="100%" />
   </div>
   <div class='paper-text' markdown="1">
   <br>
-  **Abstract:** Predicting occult lymph node metastasis in non-small cell lung cancer (NSCLC) patients before surgery is crucial for determining appropriate treatment plans. However, predicted occult lymph node metastases in NSCLC patients have been under-studied due to various challenges, such as the complexity and variability of lymph node characteristics. In addition, there is no publicly available pathologically confirmed predictive dataset of occult lymph node metastases in NSCLC patients for training and testing predictive algorithms. To address this challenge we retrospectively collect occult lymph node metastasis dataset (TJ-OLNM) that meet the criteria from NSCLC patients who undergo chest CT scans at Tongji Hospital of Tongji University between 2016 and 2021. Additionally, we introduce a novel self-supervised hyperbolic metric few-shot learning method, named Occult Lymph Node Metastasis Network (OLNM-Net), for accurate prediction of occult lymph node metastasis. In OLNM-Net, a self-supervised pretrained module is proposed to learn preliminary lymph node imaging features, and then a hyperbolic theory-based few-shot metric learning module is constructed to predict occult lymph node metastasis in NSCLC. We performed a comprehensive evaluation of the state-of-the-art prediction model and our OLNM-Net on the constructed TJ-OLNM dataset. The experimental results show that our OLNM-Net yields better performance in predicting occult lymph node metastasis in TJ-OLNM than traditional and other deep learning methods. This explores the possibility of preoperative prediction of occult lymph node metastasis in NSCLC from CT imaging features, providing a new scheme for the study of NSCLC disease.
+  **Abstract:** Predicting occult lymph node metastasis in non-small cell lung cancer (NSCLC) patients is pivotal for tailoring appropriate surgical and therapeutic interventions. This prognostic factor remains underexplored, largely due to the intricate variability of occult lymph node characteristics and the absence of a pathologically confirmed predictive dataset. Addressing this gap, we retrospectively assembled a dataset of occult lymph node metastases (TJ-OLNM) from NSCLC patients who underwent chest Computed Tomography (CT) scans at Tongji Hospital, Tongji University from 2016 to 2021. Utilizing this dataset, we developed a novel self-supervised learning model, the Occult Lymph Node Metastasis Network (OLNM-Net), which leverages hyperbolic metric few-shot learning to enhance the prediction accuracy of occult metastases. Our comprehensive evaluations demonstrate that OLNM-Net significantly outperforms existing models in predicting occult lymph node metastasis, offering new insights into the preoperative assessment of NSCLC and advancing the application of machine learning in medical diagnostics.
 </div>
 </div>
 
 
 - MRP-Net: Seizure detection method based on modified recurrence plot and additive attention convolution neural network <br/>
-Wenkai Huang, **Haizhou Xu**, Yujia Yu <br/>
+Wenkai Huang*, **Haizhou Xu**, Yujia Yu <br/>
 *Biomedical Signal Processing and Control* | [paper](../files/paper2.pdf)
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">new</div><img src='../images/paper2.png' alt="sym" width="100%"></div></div>
@@ -64,7 +66,7 @@ Wenkai Huang, **Haizhou Xu**, Yujia Yu <br/>
 
 
 - Hyperbolic Music Transformer for Structured Music Generation <br/>
-Wenkai Huang, Yujia Yu, **Haizhou Xu** <br/>
+Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 *IEEE Access* | [paper](../files/paper1.pdf)
 
 
