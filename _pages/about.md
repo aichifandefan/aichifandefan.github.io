@@ -84,6 +84,27 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 
 <!-- # 💻 Projects -->
 # 💻 Blog
+<!-- 插入卡片布局的 HTML -->
+<div class="paper-card">
+    <div class="paper-header">
+        <img src="../images/paper1.jpg" alt="Sample Image" class="paper-image">
+    </div>
+    <div class="paper-info">
+        <h3>Sample Paper Title</h3>
+        <div class="paper-meta">
+            <span class="meta-item">sample-repo</span>
+            <span class="meta-item">PyTorch</span>
+            <span class="meta-item">8 Oct 2024</span>
+        </div>
+        <p>Brief description of the paper.</p>
+        <div class="tag">Machine Learning</div>
+        <div class="paper-stats">
+            <span class="stars">⭐ 322</span>
+            <span class="rate">4.94 stars/hour</span>
+        </div>
+    </div>
+</div>
+
 Notion 数学公式 [Link](../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html)
 
 Ubuntu 深度学习服务器配置教程 [link](../files/Blog/Ubuntu/Ubuntu.html)
@@ -96,7 +117,7 @@ DDPM 公式推导 [Link](../files/Blog/DDPM%20Formula%20Derivation/DDPM%20Formul
 
 # 📖 Educations
 
-- *2020.09 - 2024.06 Robot Engineering(BE), Guangzhou University. 
+- *2020.09 - 2024.06* Robot Engineering(BE), Guangzhou University. 
 
 # 🦄 Welcome to my website
 <body>
