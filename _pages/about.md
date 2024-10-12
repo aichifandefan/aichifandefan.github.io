@@ -98,12 +98,13 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
     <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
     <div class="tag">Monocular Depth Estimation</div>
+    <div class="tag">Test</div>
     <div class="paper-stats">
       <span class="stars">⭐ 2,730</span>
       <span class="rate">3.06 stars/hour</span>
     </div>
     <div class="paper-actions">
-      <a href="#" class="btn">Paper</a>
+      <a href="../files/paper1.pdf" class="btn">Paper</a>
       <a href="#" class="btn">Code</a>
     </div>
   </div>
