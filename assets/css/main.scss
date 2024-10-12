@@ -236,12 +236,13 @@ h1:before, .anchor:before {
     color: white;
     padding: 10px 15px;
     border-radius: 8px;
-    text-decoration: none;
+    text-decoration: none;  /* 移除下划线 */
     margin-bottom: 10px;
     font-size: 14px;
     transition: background-color 0.3s ease;
     width: 120px;
     text-align: center;
+    display: inline-block;  /* 确保链接像按钮一样显示 */
   }
   
   .code {
@@ -249,21 +250,19 @@ h1:before, .anchor:before {
     color: white;
     padding: 10px 15px;
     border-radius: 8px;
-    text-decoration: none;
+    text-decoration: none;  /* 移除下划线 */
     margin-bottom: 10px;
     font-size: 14px;
     transition: background-color 0.3s ease;
     width: 120px;
     text-align: center;
+    display: inline-block;  /* 确保链接像按钮一样显示 */
   }
   
-  /* 设置 .paper 按钮的悬停效果 */
   .paper:hover {
-    background-color: #1C8AD6; /* 改变悬停时的颜色 */
+    background-color: #1C8AD6; /* 悬停效果 */
   }
   
-  /* 设置 .code 按钮的悬停效果 */
   .code:hover {
-    background-color: #02708A; /* 改变悬停时的颜色 */
+    background-color: #02708A; /* 悬停效果 */
   }
-  
