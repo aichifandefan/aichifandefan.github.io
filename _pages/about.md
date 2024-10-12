@@ -130,20 +130,20 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
       <span class="tag">Monocular Depth Estimation</span>
       <span class="tag">Test</span>
     </div>
+  </div>
 
-    <!-- 右侧星标和按钮部分 -->
-    <div class="paper-actions">
-      <!-- 星标部分 -->
-      <div class="stars-box">
-        <span class="stars">⭐ 2,730</span>
-      </div>
-      <span class="rate">3.06 stars/hour</span>
+  <!-- 右侧按钮和星标部分 -->
+  <div class="paper-actions">
+    <!-- 星标部分 -->
+    <div class="stars-box">
+      <span class="stars">⭐ 2,730</span>
+    </div>
+    <span class="rate">3.06 stars/hour</span>
 
-      <!-- 按钮部分 -->
-      <div class="button-group">
-        <a href="#" class="btn">Paper</a>
-        <a href="#" class="btn">Code</a>
-      </div>
+    <!-- 按钮部分 -->
+    <div class="button-group">
+      <a href="#" class="btn">Paper</a>
+      <a href="#" class="btn">Code</a>
     </div>
   </div>
 </div>
