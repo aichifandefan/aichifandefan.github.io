@@ -243,7 +243,7 @@ h1:before, .anchor:before {
     width: 120px;
     text-align: center;
   }
-
+  
   .code {
     background-color: #0297B1;
     color: white;
@@ -257,8 +257,13 @@ h1:before, .anchor:before {
     text-align: center;
   }
   
-  
-
-  .btn:hover {
-    background-color: #0056b3;
+  /* 设置 .paper 按钮的悬停效果 */
+  .paper:hover {
+    background-color: #1C8AD6; /* 改变悬停时的颜色 */
   }
+  
+  /* 设置 .code 按钮的悬停效果 */
+  .code:hover {
+    background-color: #02708A; /* 改变悬停时的颜色 */
+  }
+  
