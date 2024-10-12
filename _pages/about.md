@@ -40,14 +40,16 @@ You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 **Haizhou Xu**, Jiaqi Wu, Yujia Yu, Wenkai Huang*, Jiong Ni* <br/>
 *Applied Soft Computing* | [paper](../files/paper3.pdf)
 
-<div class="paper-box">
+<!-- <div class="paper-box">
   <div class="paper-image">
   <div class="badge">new
   </div>
     <img src="../images/paper3.png" alt="sym" width="100%" />
   </div>
   <div class='paper-text' markdown="1">
-  <br>
+  <br> -->
+  <div class='paper-box'><div class='paper-box-image'><div><div class="badge">new</div><img src='../images/paper3.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
   **Abstract:** Predicting occult lymph node metastasis in non-small cell lung cancer (NSCLC) patients is pivotal for tailoring appropriate surgical and therapeutic interventions. This prognostic factor remains underexplored, largely due to the intricate variability of occult lymph node characteristics and the absence of a pathologically confirmed predictive dataset. Addressing this gap, we retrospectively assembled a dataset of occult lymph node metastases (TJ-OLNM) from NSCLC patients who underwent chest Computed Tomography (CT) scans at Tongji Hospital, Tongji University from 2016 to 2021. Utilizing this dataset, we developed a novel self-supervised learning model, the Occult Lymph Node Metastasis Network (OLNM-Net), which leverages hyperbolic metric few-shot learning to enhance the prediction accuracy of occult metastases. Our comprehensive evaluations demonstrate that OLNM-Net significantly outperforms existing models in predicting occult lymph node metastasis, offering new insights into the preoperative assessment of NSCLC and advancing the application of machine learning in medical diagnostics.
 </div>
 </div>
