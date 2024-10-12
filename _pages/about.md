@@ -84,6 +84,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 
 <!-- # 💻 Projects -->
 # 💻 Blog
+Ubuntu 深度学习服务器配置教程 [link](../files/Blog/Ubuntu/Ubuntu.html)
 
 # 🎖 Honors and Awards
 

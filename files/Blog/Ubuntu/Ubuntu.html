@@ -1,0 +1,819 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Ubuntu深度学习服务器配置教程</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="11de1c97-a3fd-80b0-a439-ecbcae12e973" class="page sans"><header><h1 class="page-title">Ubuntu深度学习服务器配置教程</h1><p class="page-description"></p><table class="properties"><tbody></tbody></table></header><div class="page-body"><nav id="11de1c97-a3fd-81d4-af65-e69f58b2084a" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11de1c97-a3fd-81a9-9a19-d54f70fcb539">一、Mac Os 制作Ubuntu的U盘启动盘</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-8198-863b-cf4c58a8d852">1. 下载Ubuntu的iso镜像文件</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-8171-bc57-ec2b49d84392">2. <strong>把iso镜像文件转换成dmg文件</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-8141-9eb3-fedb745978b4"><strong>3. 插入U盘，并用命令行卸载U盘</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-81bf-a3e3-c3d9c9aaae65"><strong>4. 把iso文件写入U盘</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-815d-91ad-c14250e1d5b4">5. 弹出U盘</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11de1c97-a3fd-81d9-affe-d02d251eaaae">二、系统安装与分区方案</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11de1c97-a3fd-81c4-a3b8-e18750633309">三、系统配置与环境配置</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-81c6-814c-cebd81f575c7">1、root密码和sudo设置</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-8104-a6f4-e295182cc9f6">1.1 进入系统后设置一下root账户密码</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-81ff-a2e4-fe865c557698">1.2 同时为了避免每次sudo都要输入密码，这里配置一下<code>visudo</code>：</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-81be-9c59-d0ec48018f64">2、<strong>配置国内镜像软件源</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-8151-bd0f-d8153ffde8e2">2.1 搜索tuna tsinghua ubuntu进入</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-8114-8420-d08b1901229c">2.2 先备份原来的源：</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-819d-87b9-cbcbd8e2496c">2.3 设置源为清华镜像源</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-819c-91a8-c24307029f31">2.4 更新软件列表</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-8155-b9f3-caf43807b729">2.5 安装英伟达显卡驱动</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-81c1-a6f3-f56540f41cbc">3、配置SSH&amp;远程桌面</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-816a-a519-d98308fdb16a">3.1 安装ssh</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-81f3-af84-e0646846250f">3.2 安装xrdp</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11de1c97-a3fd-8131-b186-e677df8c97be">四、配置内网穿透</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-817b-b0f4-e16ae9a07beb">1、首先准备一个带有公网ip的云服务器</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-8172-85d0-e99bb56d434e">2、在云服务器和本地服务器下载frp内网穿透</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-8143-9bfa-cb2fcffaca41">2.1 云服务器端配置</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#11de1c97-a3fd-8172-953e-e6bb4f5e0520">2.2 服务器本地端配置</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#11de1c97-a3fd-810e-8523-c3f161ff13a2">五、安装CUDA和CuDnn</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-8110-b6ff-fd7c88c4df2b">1、安装CUDA</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-81c2-aa7d-e86a0ff2dd89">2、安装cuDNN</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#11de1c97-a3fd-81f1-a1c9-f4f01c20c013">参考</a></div></nav><h1 id="11de1c97-a3fd-81a9-9a19-d54f70fcb539" class="">一、Mac Os 制作Ubuntu的U盘启动盘</h1><p id="11de1c97-a3fd-81e5-9ead-d0d590568223" class="">由于本人使用MacOS系统，启动盘制作比较麻烦，可以参考其它windows启动盘制作教程比较简单</p><h2 id="11de1c97-a3fd-8198-863b-cf4c58a8d852" class="">1. 下载Ubuntu的iso镜像文件</h2><p id="11de1c97-a3fd-81e3-aa1c-cd6e318e46e0" class="">下载地址：<a href="https://ubuntu.com/download/desktop">https://ubuntu.com/download/desktop</a></p><h2 id="11de1c97-a3fd-8171-bc57-ec2b49d84392" class="">2. <strong>把iso镜像文件转换成dmg文件</strong></h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81c3-b5cc-f552884d9e3c" class="code"><code class="language-Bash">cd Downloads/
+hdiutil convert -format UDRW -o ubuntu.iso ubuntu-22.04.2-desktop-amd64.iso</code></pre><p id="11de1c97-a3fd-8171-83c9-cfe068315a33" class="">format为生成文件的权限；UDRW :表示转换成有read/write的权限的镜像。</p><p id="11de1c97-a3fd-81ab-90b0-c5d61dd28625" class="">终端里面出现以下的成功信息：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8167-8eff-c12b3ce4ea19" class="code"><code class="language-Bash">正在读取Protective Master Boot Record（MBR：0）…
+正在读取GPT Header（Primary GPT Header：1）…
+正在读取GPT Partition Data（Primary GPT Table：2）…
+正在读取ISO9660（DOS_FAT：3）…
+...............................................................................
+正在读取Appended2（C12A7328-F81F-11D2-BA4B-00A0C93EC93B：4）…
+...............................................................................
+正在读取Gap1（DOS_FAT：5）…
+...............................................................................
+正在读取Ubuntu 22.04.2 LTS amd64        （Apple_ISO：6）…
+...............................................................................
+正在读取GPT Partition Data（Backup GPT Table：7）…
+...............................................................................
+正在读取GPT Header（Backup GPT Header：8）…
+...............................................................................
+已耗时： 7.168s
+速度：655.5MB/秒
+节省：0.0%
+created: /Users/aichifandefan/Downloads/ubuntu.iso.dmg</code></pre><h2 id="11de1c97-a3fd-8141-9eb3-fedb745978b4" class=""><strong>3. 插入U盘，并用命令行卸载U盘</strong></h2><p id="11de1c97-a3fd-81db-a8a7-ed86090174d1" class="">注意找到U盘的路径，使用<code>diskutil list</code>命令查询。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-814d-addb-faeebc0076fa" class="code"><code class="language-Bash">/dev/disk0 (internal, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *1.0 TB     disk0
+   1:             Apple_APFS_ISC Container disk1         524.3 MB   disk0s1
+   2:                 Apple_APFS Container disk3         994.7 GB   disk0s2
+   3:        Apple_APFS_Recovery Container disk2         5.4 GB     disk0s3
+
+/dev/disk3 (synthesized):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      APFS Container Scheme -                      +994.7 GB   disk3
+                                 Physical Store disk0s2
+   1:                APFS Volume Macintosh HD            12.9 GB    disk3s1
+   2:              APFS Snapshot com.apple.os.update-... 12.9 GB    disk3s1s1
+   3:                APFS Volume Preboot                 9.7 GB     disk3s2
+   4:                APFS Volume Recovery                1.6 GB     disk3s3
+   5:                APFS Volume Macintosh HD - Data     454.1 GB   disk3s5
+   6:                APFS Volume VM                      20.5 KB    disk3s6
+
+/dev/disk4 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *31.0 GB    disk4
+   1:               Windows_NTFS ESD-USB                 31.0 GB    disk4s1</code></pre><p id="11de1c97-a3fd-819c-af06-ee8f1838e2d2" class="">找到U盘的路径为/dev/disk4，并使用命令行卸载U盘：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81e1-ace3-e8d1832636c9" class="code"><code class="language-Bash">diskutil unmountDisk /dev/disk4</code></pre><p id="11de1c97-a3fd-81ae-bf85-cf4444a5fd1a" class="">显示信息为：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-818a-90e4-d2a727fae9f1" class="code"><code class="language-Bash">Unmount of all volumes on disk4 was successful。</code></pre><h2 id="11de1c97-a3fd-81bf-a3e3-c3d9c9aaae65" class=""><strong>4. 把iso文件写入U盘</strong></h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-811d-bded-df229e159a87" class="code"><code class="language-Bash">mv ubuntu.iso.dmg ubuntu.iso
+sudo dd if=./ubuntu.iso of=/dev/disk4 bs=1m</code></pre><p id="11de1c97-a3fd-81ac-bd3e-e1f02f424e08" class="">显示信息为</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81ad-91d8-de4531f76522" class="code"><code class="language-Bash">4699+1 records in
+4699+1 records out
+4927586304 bytes transferred in 335.048358 secs (14707090 bytes/sec)</code></pre><h2 id="11de1c97-a3fd-815d-91ad-c14250e1d5b4" class="">5. 弹出U盘</h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81e8-957d-fa46157b318d" class="code"><code class="language-Bash">sudo eject /dev/disk4</code></pre><p id="11de1c97-a3fd-8115-bd7f-ebdba2891a5c" class="">
+</p><h1 id="11de1c97-a3fd-81d9-affe-d02d251eaaae" class="">二、系统安装与分区方案</h1><figure id="11de1c97-a3fd-81db-bcc5-ebdfbb3cd3a2" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled.png"><img style="width:708px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled.png"/></a></figure><p id="11de1c97-a3fd-818a-bd8f-ef7fadd155b8" class="">
+</p><h1 id="11de1c97-a3fd-81c4-a3b8-e18750633309" class="">三、系统配置与环境配置</h1><h2 id="11de1c97-a3fd-81c6-814c-cebd81f575c7" class="">1、root密码和sudo设置</h2><h3 id="11de1c97-a3fd-8104-a6f4-e295182cc9f6" class="">1.1 进入系统后设置一下root账户密码</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8139-9a3f-cd11e308b26a" class="code"><code class="language-Bash">sudo passwd root</code></pre><h3 id="11de1c97-a3fd-81ff-a2e4-fe865c557698" class="">1.2 同时为了避免每次sudo都要输入密码，这里配置一下<code>visudo</code>：</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81f5-834b-d6b9742a3416" class="code"><code class="language-Bash">sudo visudo</code></pre><p id="11de1c97-a3fd-81f1-97bb-c9697b09ab20" class="">在文件最后加上一句（user_name改为自己的用户名）：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81e4-a7a2-ec39c545f228" class="code"><code class="language-Bash">user_name ALL=(ALL) NOPASSWD: ALL</code></pre><h2 id="11de1c97-a3fd-81be-9c59-d0ec48018f64" class="">2、<strong>配置国内镜像软件源</strong></h2><h3 id="11de1c97-a3fd-8151-bd0f-d8153ffde8e2" class="">2.1 搜索tuna tsinghua ubuntu进入</h3><p id="11de1c97-a3fd-81a0-890f-d58e40a40b8d" class=""><a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></p><p id="11de1c97-a3fd-81f7-8cd2-c5c2bb729e50" class="">找到自己版本Ubuntu的镜像源，这里以Ubuntu22.04为例子</p><h3 id="11de1c97-a3fd-8114-8420-d08b1901229c" class="">2.2 先备份原来的源：</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-814e-bdce-c6dd5ef5455a" class="code"><code class="language-Bash">cp /etc/apt/sources.list /etc/apt/sources.list.bak</code></pre><h3 id="11de1c97-a3fd-819d-87b9-cbcbd8e2496c" class="">2.3 设置源为清华镜像源</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8122-bcc9-ceb5983b6c11" class="code"><code class="language-Bash">sudo gedit /etc/apt/sources.list</code></pre><p id="11de1c97-a3fd-8144-a8a9-cb73a7362dbc" class="">内容设置为：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81a3-8bd5-ecd49b683608" class="code"><code class="language-Bash"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
+# # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
+
+deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+# deb-src http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
+# # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</code></pre><h3 id="11de1c97-a3fd-819c-91a8-c24307029f31" class="">2.4 更新软件列表</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-812c-a61b-f7e6b9e567c2" class="code"><code class="language-Bash">sudo apt update
+sudo apt upgrade</code></pre><h3 id="11de1c97-a3fd-8155-b9f3-caf43807b729" class="">2.5 安装英伟达显卡驱动</h3><p id="11de1c97-a3fd-81be-a460-f5e0afdfb3a5" class="">进入系统的图形桌面，打开<code>Software &amp; Updates</code>软件，可以看到标签栏有一个<code>Additional Drivers</code>：</p><figure id="11de1c97-a3fd-8193-b575-d8d46e360215" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%201.png"><img style="width:708px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%201.png"/></a></figure><p id="11de1c97-a3fd-81f7-9f9a-f1bb2461973f" class="">选择第一个安装Nvidia官方驱动（第二个是开源驱动）即可，根据网络情况稍等大概十分钟，安装完重启服务器。</p><p id="11de1c97-a3fd-8168-9bc8-cb7ad0242a81" class="">重启完之后更新一下软件：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8185-b6a7-e72653d921ef" class="code"><code class="language-Bash">sudo apt update
+sudo apt upgrade</code></pre><p id="11de1c97-a3fd-8116-bfb4-f5b2dd010b23" class="">这里会连带Nvidia的驱动一起升级一遍，更新到最新的驱动。</p><p id="11de1c97-a3fd-8100-86ef-d55115d6b496" class="">最后输入<code>nvidia-smi</code>命令查看，得到下图，说明显卡驱动安装成功</p><figure id="11de1c97-a3fd-813d-ba65-c1d64e295fb6" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%202.png"><img style="width:708px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%202.png"/></a></figure><h2 id="11de1c97-a3fd-81c1-a6f3-f56540f41cbc" class="">3、配置SSH&amp;远程桌面</h2><h3 id="11de1c97-a3fd-816a-a519-d98308fdb16a" class="">3.1 安装ssh</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-817b-b710-ce8d832e824b" class="code"><code class="language-Bash">sudo apt install ssh</code></pre><h3 id="11de1c97-a3fd-81f3-af84-e0646846250f" class="">3.2 安装xrdp</h3><p id="11de1c97-a3fd-8164-9b75-dd3394467644" class="">Xrdp 是一个微软远程桌面协议（RDP）的开源实现，它允许我们通过图形界面控制远程系统。这里使用RDP而不是VNC作为远程桌面，是因为Windows自带的远程桌面连接软件就可以连接很方便，另外RDP在Windows下的体验非常好，包括速度很快（因为压缩方案做得比较好），可以直接在主机和远程桌面之间复制粘贴等等。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8134-9b8b-fecb8352e559" class="code"><code class="language-Bash">sudo apt install xrdp</code></pre><p id="11de1c97-a3fd-81e9-8f85-cd95e73c807d" class="">安装完成xrdp 服务将会自动启动，可以输入下面的命令验证它：</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81db-8405-c0cc7e96038f" class="code"><code class="language-Bash">sudo systemctl status xrdp</code></pre><p id="11de1c97-a3fd-819f-b35d-d3315fc6ff36" class="">开启远程连接</p><figure id="11de1c97-a3fd-81cf-ab98-fcfd333bef3e" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%203.png"><img style="width:708px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%203.png"/></a></figure><h1 id="11de1c97-a3fd-8131-b186-e677df8c97be" class="">四、配置内网穿透</h1><h2 id="11de1c97-a3fd-817b-b0f4-e16ae9a07beb" class="">1、首先准备一个带有公网ip的云服务器</h2><p id="11de1c97-a3fd-81e2-8836-fb0577757e0f" class="">我这里使用的是阿里云的<strong>轻量应用服务器</strong></p><h2 id="11de1c97-a3fd-8172-85d0-e99bb56d434e" class="">2、在云服务器和本地服务器下载frp内网穿透</h2><p id="11de1c97-a3fd-8199-a6b6-e847f7ad4296" class="">官方下载地址：<a href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a></p><p id="11de1c97-a3fd-8191-a313-cf4da3820923" class="">因为我的Linux服务器为x86架构所以下载的是这个，根据自己实际情况选择</p><figure id="11de1c97-a3fd-811c-8cc8-d1d970fb0744" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%204.png"><img style="width:708px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%204.png"/></a></figure><p id="11de1c97-a3fd-810c-8dec-cf9793f37844" class="">使用wget下载</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-812c-ad43-dfb8c2f0a5ab" class="code"><code class="language-Bash">wget https://github.com/fatedier/frp/releases/download/v0.44.0/frp_0.44.0_linux_amd64.tar.gz</code></pre><p id="11de1c97-a3fd-816f-8b99-c0a16da9c2a0" class="">解压</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8191-9d07-d7ca3cdaeae9" class="code"><code class="language-Bash">tar -xzvf frp_0.44.0_linux_amd64.tar.gz</code></pre><h3 id="11de1c97-a3fd-8143-9bfa-cb2fcffaca41" class="">2.1 云服务器端配置</h3><p id="11de1c97-a3fd-817a-9fb9-e5d18b9ba766" class="">进入文件夹</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81c6-bd35-e0674076e87e" class="code"><code class="language-Bash">cd frp_0.44.0_linux_amd64</code></pre><p id="11de1c97-a3fd-816d-8b33-f797846dc406" class="">修改frps.ini配置文件</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8127-b3f5-ee43695def17" class="code"><code class="language-Bash">vi frps.ini</code></pre><p id="11de1c97-a3fd-8158-8d6e-ce88488c29d0" class="">编辑配置文件如下，按【i】键编辑，按【Esc】键退出编辑，再按  <strong>:wq  退出并保存</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8162-8df3-df35421e86e3" class="code"><code class="language-Bash">[common]
+bind_port = 7000    # 云服务器端口号
+
+dashboard_port = 7500   # 监控端口号，可以通过浏览器查看frp的状态以及代理统计信息展示
+dashboard_user = xhz   # 监控界面登陆账户名
+dashboard_pwd = 136124 # 监控界面登陆密码</code></pre><p id="11de1c97-a3fd-8131-9e8c-d1a501963f13" class="">不能有注释</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8118-a0ca-f2cac14a43c3" class="code"><code class="language-JavaScript">[common]
+bind_port = 7000    
+
+dashboard_port = 7500   
+dashboard_user = xhz   
+dashboard_pwd = 136124 </code></pre><p id="11de1c97-a3fd-814d-afe6-ce9161b6b053" class="">设置开机启动并且后台运行</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8197-9c35-f62fa8c1b42c" class="code"><code class="language-Bash">vi /etc/systemd/system/frps.service</code></pre><p id="11de1c97-a3fd-816e-a35d-c16d939e6abf" class="">修改为如下，注意根据自己路径修改ExecStart</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81c5-bcf4-c486c6f8f3cb" class="code"><code class="language-Bash">[Unit]
+Description=frps daemon
+After=syslog.target  network.target
+Wants=network.target
+[Service]
+Type=simple
+ExecStart=/root/frp_0.44.0_linux_amd64/frps -c /root/frp_0.44.0_linux_amd64/frps.ini
+Restart= always
+RestartSec=1min
+[Install]
+WantedBy=multi-user.target</code></pre><p id="11de1c97-a3fd-814d-8dcd-c8e5b4799455" class="">完成后，可以通过下面的命令进行控制frp服务端</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-812a-9c60-c26b54c4aa4a" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">启动frps：sudo systemctl start frps
+打开开机自启动：sudo systemctl enable frps
+重启应用：sudo systemctl restart frps
+停止应用：sudo systemctl stop frps
+查看应用的日志：sudo systemctl status frps</code></pre><p id="11de1c97-a3fd-8149-9923-efa0a6b83080" class="">运行下面的命令启动并设置开机启动</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81a4-b578-e3d1c895e7af" class="code"><code class="language-Bash">systemctl start frps &amp;&amp; systemctl enable frps</code></pre><p id="11de1c97-a3fd-8117-8ee0-d5e11019c2e5" class="">到这里frp云服务器的服务端配置完成</p><h3 id="11de1c97-a3fd-8172-953e-e6bb4f5e0520" class="">2.2 服务器本地端配置</h3><p id="11de1c97-a3fd-81fd-95c5-d48b0b2a69c6" class="">下载相应版本的frp并进入frp目录</p><p id="11de1c97-a3fd-814c-908c-f81460f462d0" class="">修改frpc.ini配置文件</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8190-abad-e0cc7411b694" class="code"><code class="language-Bash">vi frpc.ini</code></pre><p id="11de1c97-a3fd-81c1-8e63-de1bbfc6a61a" class="">修改如下，其实就是通过公网ip将本地服务器的22和3389端口映射到公网的2022和23389端口</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8166-9804-e1685963328c" class="code"><code class="language-Bash">[common]
+server_addr = xxx # 你的云服务器的公网ip
+server_port = 7000 # 刚刚配置的frp服务端口
+
+[Fusion-ssh]
+type = tcp
+local_ip = xxx    # 本地服务器IP
+local_port = 22
+remote_port = 20022
+
+[Fusion-rdp]
+type = tcp
+local_ip = xxx  # 本地服务器IP
+local_port = 3389
+remote_port = 23389
+</code></pre><p id="11de1c97-a3fd-81c8-af0b-c1a111d9b663" class="">在云服务器防火墙设置开放刚刚使用到的端口</p><figure id="11de1c97-a3fd-81ae-88ab-c1d3e3392c82" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%205.png"><img style="width:2956px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%205.png"/></a></figure><p id="11de1c97-a3fd-8125-ae6a-eb2769cc9d2a" class="">设置开机启动并且后台运行（后面步骤与云服务器相似）</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81f6-bd62-fc3ca9a5cb5f" class="code"><code class="language-Bash">vi /etc/systemd/system/frpc.service</code></pre><p id="11de1c97-a3fd-8150-8b52-e495368b0cbc" class="">修改为如下，注意根据自己路径修改ExecStart</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8167-9e93-f22d25ee1e2f" class="code"><code class="language-Bash">[Unit]
+Description=frps daemon
+After=syslog.target  network.target
+Wants=network.target
+[Service]
+Type=simple
+ExecStart=/root/frp_0.44.0_linux_amd64/frpc -c /root/frp_0.44.0_linux_amd64/frpc.ini
+Restart= always
+RestartSec=1min
+[Install]
+WantedBy=multi-user.target</code></pre><p id="11de1c97-a3fd-81c1-b8e8-da8ef166de4a" class="">完成后，可以通过下面的命令进行控制frp服务端</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8134-8305-d1a5648ecea9" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">启动frpc：sudo systemctl start frpc
+打开开机自启动：sudo systemctl enable frpc
+重启应用：sudo systemctl restart frpc
+停止应用：sudo systemctl stop frpc
+查看应用的日志：sudo systemctl status frpc</code></pre><p id="11de1c97-a3fd-814c-b0f8-c70a669715c1" class="">运行下面的命令启动并设置开机启动</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81da-879e-e86150a9e372" class="code"><code class="language-Bash">systemctl start frpc &amp;&amp; systemctl enable frpc</code></pre><p id="11de1c97-a3fd-8168-8d61-c239e040c957" class="">到这里frp本地服务器的服务端配置完成</p><p id="11de1c97-a3fd-8102-95dc-deef94452b0c" class="">
+</p><h1 id="11de1c97-a3fd-810e-8523-c3f161ff13a2" class="">五、安装CUDA和CuDnn</h1><h2 id="11de1c97-a3fd-8110-b6ff-fd7c88c4df2b" class="">1、安装CUDA</h2><p id="11de1c97-a3fd-8143-b07f-e6964d9fa0ec" class="">进入nivida官网<a href="https://developer.nvidia.com/cuda-toolkit-archive">https://developer.nvidia.com/cuda-toolkit-archive</a></p><p id="11de1c97-a3fd-81c5-a856-db176c6e563e" class="">根据实际情况选择自己的CUDA版本</p><figure id="11de1c97-a3fd-813d-8a93-ec479ffe50b2" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%206.png"><img style="width:3004px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%206.png"/></a></figure><p id="11de1c97-a3fd-81df-8545-f276ed94b487" class="">我这里选择的是11.8</p><figure id="11de1c97-a3fd-81d6-a5aa-d92d0ffe0eef" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%207.png"><img style="width:2810px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%207.png"/></a></figure><p id="11de1c97-a3fd-8167-a3ee-f0ac895ae4ce" class="">复制命令下载安装</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-815d-bd96-f993b53f6094" class="code"><code class="language-Bash">wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run
+sudo sh cuda_11.8.0_520.61.05_linux.run</code></pre><p id="11de1c97-a3fd-811d-8321-dafeb78c014f" class="">前面安装了nvidia显卡驱动前面两个取消 X代表选中</p><figure id="11de1c97-a3fd-81b4-a8f9-cd01c2e95714" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%208.png"><img style="width:660px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%208.png"/></a></figure><p id="11de1c97-a3fd-8195-9577-ebb8affca769" class="">添加新的cuda到环境变量:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8190-b467-e8da1a8acb50" class="code"><code class="language-Bash">sudo gedit ~/.bashrc</code></pre><p id="11de1c97-a3fd-812f-a7fe-e6f15b920ef9" class="">在其打开的文件的末尾添加，根据自己实际的路径修改</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-812d-b4af-f387de56a37a" class="code"><code class="language-Bash">export CUDA_HOME=/usr/local/cuda 
+export PATH=$PATH:$CUDA_HOME/bin 
+export LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}</code></pre><p id="11de1c97-a3fd-8167-a7d3-da17fa61a5c9" class="">保存，退出，刷新环境变量</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8175-9c66-d866128c0b94" class="code"><code class="language-Bash">source ~/.bashrc</code></pre><p id="11de1c97-a3fd-811f-8dd3-c3e646bbe5ce" class=""><strong>验证cuda:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8124-a10f-f3af881eaf91" class="code"><code class="language-Bash">nvcc -V</code></pre><p id="11de1c97-a3fd-81a5-ab98-cd715b772ae9" class="">得到</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81c7-8cd9-dc95f04967f4" class="code"><code class="language-Bash">nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2022 NVIDIA Corporation
+Built on Wed_Sep_21_10:33:58_PDT_2022
+Cuda compilation tools, release 11.8, V11.8.89
+Build cuda_11.8.r11.8/compiler.31833905_0</code></pre><h2 id="11de1c97-a3fd-81c2-aa7d-e86a0ff2dd89" class="">2、安装cuDNN</h2><p id="11de1c97-a3fd-8110-b98e-f9419149bbaa" class="">进入官网<a href="https://developer.nvidia.com/zh-cn/cudnn">https://developer.nvidia.com/zh-cn/cudnn</a>根据自己情况选择对应版本</p><figure id="11de1c97-a3fd-8121-b99d-f4c32e4599fe" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%209.png"><img style="width:2828px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%209.png"/></a></figure><figure id="11de1c97-a3fd-817c-8cd9-c07495887e27" class="image"><a href="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%2010.png"><img style="width:2660px" src="Ubuntu%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%2011de1c97a3fd80b0a439ecbcae12e973/Untitled%2010.png"/></a></figure><p id="11de1c97-a3fd-8170-9616-c95bb6470935" class="">解压</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8167-ae5c-c89821c7bb73" class="code"><code class="language-Bash">tar -xvf cudnn-linux-x86_xxxxxx_cuda11-archive.tar.xz</code></pre><p id="11de1c97-a3fd-8109-9a64-c14cb084d573" class="">复制cudnn文件到cuda</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81eb-9391-ca4be89edc70" class="code"><code class="language-Bash">sudo cp cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include 
+sudo cp -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64 
+sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*</code></pre><p id="11de1c97-a3fd-8146-942a-ee7b05e14ede" class="">验证安装是否成功，输入</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-8187-9433-c415d5848bf7" class="code"><code class="language-Bash">cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2</code></pre><p id="11de1c97-a3fd-81e5-8bf7-d0c54b100783" class="">得到下面结果</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11de1c97-a3fd-81dd-b06f-c04503753aef" class="code"><code class="language-Bash">#define CUDNN_MAJOR 8
+#define CUDNN_MINOR 9
+#define CUDNN_PATCHLEVEL 1
+--
+#define CUDNN_VERSION (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)
+
+/* cannot use constexpr here since this is a C-only file */</code></pre><p id="11de1c97-a3fd-81f8-a4a0-e13ff0b6d3cf" class="">
+</p><p id="11de1c97-a3fd-8154-babf-e0c870f65f13" class="">
+</p><h2 id="11de1c97-a3fd-81f1-a1c9-f4f01c20c013" class="">参考</h2><figure id="11de1c97-a3fd-81f6-a6b6-c3297aab4bb7"><a href="https://www.jianshu.com/p/64ef0bd6709c" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">2019-06-27 Mac OS制作Ubuntu的U盘启动盘</div><div class="bookmark-description">1. 下载Ubuntu的iso镜像文件 地址为：https://ubuntu.com/download/desktop 2.  把iso镜像文件转换成dmg文件 -forma...</div></div><div class="bookmark-href">https://www.jianshu.com/p/64ef0bd6709c</div></div><img src="https://upload.jianshu.io/users/upload_avatars/2015036/f7dea6372bb9.jpeg" class="bookmark-image"/></a></figure><figure id="11de1c97-a3fd-81ea-9069-ed0cbb8effbd"><a href="http://t.csdn.cn/Z2kPF" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Windows重装Ubuntu 20.04单系统_ubuntu单系统_小骄傲_的博客-CSDN博客</div><div class="bookmark-description">之前在自己的主力机(Windows)上安装了ubuntu双系统，被Ubuntu的简洁操作所吸引，索性直接在自己的电脑上搞个单系统练手。1.制作系统镜像启动安装盘1）Ubuntu系统镜像下载Ubuntu官网https://cn.ubuntu.com/download2）制作启动盘软件(UltraISO)下载UltralSO官网：https://filehippo.com/download_ultra-iso/直接下载免费试用版本，全部默认下一步安装。3）开始制作启动盘准备一个空U盘(最好不</div></div><div class="bookmark-href"><img src="https://g.csdnimg.cn/static/logo/favicon32.ico" class="icon bookmark-icon"/>http://t.csdn.cn/Z2kPF</div></div></a></figure><figure id="11de1c97-a3fd-8120-88be-f56c477f08ba"><a href="http://t.csdn.cn/F1u1A" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Windows重装Ubuntu 20.04单系统_ubuntu单系统_小骄傲_的博客-CSDN博客</div><div class="bookmark-description">之前在自己的主力机(Windows)上安装了ubuntu双系统，被Ubuntu的简洁操作所吸引，索性直接在自己的电脑上搞个单系统练手。1.制作系统镜像启动安装盘1）Ubuntu系统镜像下载Ubuntu官网https://cn.ubuntu.com/download2）制作启动盘软件(UltraISO)下载UltralSO官网：https://filehippo.com/download_ultra-iso/直接下载免费试用版本，全部默认下一步安装。3）开始制作启动盘准备一个空U盘(最好不</div></div><div class="bookmark-href"><img src="https://g.csdnimg.cn/static/logo/favicon32.ico" class="icon bookmark-icon"/>http://t.csdn.cn/F1u1A</div></div></a></figure><figure id="11de1c97-a3fd-8164-86e8-eae8a9091fc5"><a href="http://t.csdn.cn/KePoO" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Linux安装cuda、cudnn_linux安装cuda和cudnn_心诩的博客-CSDN博客</div><div class="bookmark-description">Linux安装cuda、cudnn安装cudaCUDA Toolkit Archive | NVIDIA Developer  选择runfile格式的CUDA文件下载wget https://developer.download.nvidia.com/compute/cuda/11.6.1/local_installers/cuda_11.6.1_510.47.03_linux.runsudo sh cuda_11.6.1_510.47.03_linux.run添加新的cuda到环境变量:s</div></div><div class="bookmark-href"><img src="https://g.csdnimg.cn/static/logo/favicon32.ico" class="icon bookmark-icon"/>http://t.csdn.cn/KePoO</div></div></a></figure><figure id="11de1c97-a3fd-819a-9bb6-cd1eb216d24f"><a href="http://t.csdn.cn/T4pBt" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Ubuntu 20.04 RTX 4090显卡 深度学习环境配置（Nvidia显卡驱动、CUDA11.6.0、cuDNN8.5）_IU_不错哦的博客-CSDN博客</div><div class="bookmark-description">完全按照官方操作即可，大概意思是将文档中的X.Y修改成CUDA版本号、v8.x.x.x修改成cuDNN版本号，这里我们将X.Y改为11.5、v8.x.x.x修改为8.3.2.44，同学们参照修改就可以了。前面已经安装过Nvidia显卡525，此处不需要Driver（前两个都取消）（X代表选中）（1）切换到/usr/local/cuda-11.6/samples目录下。（3）成功提取文件后不用管它，直接执行下面命令（不用修改，没有版本号之类）（2）将以下内容写入到~/.bashrc尾部，并保存成功。</div></div><div class="bookmark-href"><img src="https://g.csdnimg.cn/static/logo/favicon32.ico" class="icon bookmark-icon"/>http://t.csdn.cn/T4pBt</div></div></a></figure><figure id="11de1c97-a3fd-81c7-a963-d50ac351b3dd"><a href="https://zhuanlan.zhihu.com/p/336429888" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">【保姆级教程】个人深度学习工作站配置指南</div><div class="bookmark-description">0. 前言工作原因一直想配置一台自己的深度学习工作站服务器，之前自己看完paper想做一些实验或者复现模型的时候只能用自己的日常PC来跑很麻烦...一方面电脑得装双系统，干活的时候就不能用作其他用途了；另一方面…</div></div><div class="bookmark-href"><img src="https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.81060cab.png" class="icon bookmark-icon"/>https://zhuanlan.zhihu.com/p/336429888</div></div><img src="https://picx.zhimg.com/v2-a9cea01a80e752808aed57f9381d4bbf_r.jpg?source=172ae18b" class="bookmark-image"/></a></figure><p id="11de1c97-a3fd-810b-a193-fe044eb1dca8" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
