@@ -131,8 +131,14 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
   </div>
   <div class="paper-actions">
-    <a href="../files/paper1.pdf" class="btn">Paper</a>
-    <a href="#" class="btn">Code</a>
+    <div class="stars-box">
+      <span class="stars">⭐ 2,730</span>
+      <span class="rate">3.06 stars/hour</span>
+    </div>
+    <div class="button-group">
+      <a href="#" class="btn">Paper</a>
+      <a href="#" class="btn">Code</a>
+    </div>
   </div>
 </div>
 
