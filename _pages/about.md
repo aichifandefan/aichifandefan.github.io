@@ -112,7 +112,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <div class="paper-card">
   <!-- 左侧图片部分 -->
   <div class="paper-left">
-    <img src="path_to_your_image.png" alt="Sample Image" class="paper-image">
+    <img src="../images/paper1.jpg" alt="Sample Image" class="paper-image">
   </div>
 
   <!-- 右侧内容部分 -->
@@ -136,8 +136,8 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
       <!-- 星标部分 -->
       <div class="stars-box">
         <span class="stars">⭐ 2,730</span>
-        <span class="rate">3.06 stars/hour</span>
       </div>
+      <span class="rate">3.06 stars/hour</span>
 
       <!-- 按钮部分 -->
       <div class="button-group">
