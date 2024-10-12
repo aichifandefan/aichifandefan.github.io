@@ -141,19 +141,19 @@ h1:before, .anchor:before {
   
   /* 左侧图片部分 */
   .paper-left {
-    flex: 1; /* 让图片区域占用页面的适当比例 */
+    flex: 1;
   }
   
   .paper-image {
     width: 100%;
-    max-width: 250px; /* 设置图片最大宽度 */
+    max-width: 250px; /* 控制图片最大宽度 */
     border-radius: 10px;
-    object-fit: cover; /* 保证图片按比例缩放 */
+    object-fit: cover;
   }
   
   /* 右侧文本部分 */
   .paper-right {
-    flex: 3; /* 让文本区域占用更大的比例 */
+    flex: 3;
     padding-left: 20px;
   }
   
@@ -173,6 +173,20 @@ h1:before, .anchor:before {
     margin-right: 10px;
   }
   
+  .tags {
+    margin: 10px 0;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #eef;
+    color: #0056b3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  
   .paper-stats {
     margin-top: 10px;
   }
@@ -187,18 +201,12 @@ h1:before, .anchor:before {
     color: #777;
   }
   
-  .tag {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #eef;
-    color: #0056b3;
-    border-radius: 5px;
-    font-size: 12px;
-    margin-top: 10px;
-  }
-  
+  /* 右侧按钮区域 */
   .paper-actions {
-    margin-top: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
   
   .btn {
@@ -207,9 +215,11 @@ h1:before, .anchor:before {
     padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;
-    margin-right: 10px;
+    margin-bottom: 10px;
     font-size: 14px;
     transition: background-color 0.3s ease;
+    width: 100px;
+    text-align: center;
   }
   
   .btn:hover {
