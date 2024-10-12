@@ -85,7 +85,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <!-- # 💻 Projects -->
 # 💻 Blog
 
-<div class="paper-card">
+<!-- <div class="paper-card">
   <div class="paper-left">
     <img src="../images/paper1.jpg" alt="Sample Image" class="paper-image">
   </div>
@@ -107,6 +107,32 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
       <a href="../files/paper1.pdf" class="btn">Paper</a>
       <a href="#" class="btn">Code</a>
     </div>
+  </div>
+</div> -->
+<div class="paper-card">
+  <div class="paper-left">
+    <img src="../images/paper1.jpg" alt="Sample Image" class="paper-image">
+  </div>
+  <div class="paper-right">
+    <h3>Depth Pro: Sharp Monocular Metric Depth in Less Than a Second</h3>
+    <div class="paper-meta">
+      <span class="meta-item">apple/ml-depth-pro</span>
+      <span class="meta-item">• PyTorch</span>
+      <span class="meta-item">• 2 Oct 2024</span>
+    </div>
+    <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
+    <div class="tags">
+      <span class="tag">Monocular Depth Estimation</span>
+      <span class="tag">Test</span>
+    </div>
+    <div class="paper-stats">
+      <span class="stars">⭐ 2,730</span>
+      <span class="rate">3.06 stars/hour</span>
+    </div>
+  </div>
+  <div class="paper-actions">
+    <a href="../files/paper1.pdf" class="btn">Paper</a>
+    <a href="#" class="btn">Code</a>
   </div>
 </div>
 
