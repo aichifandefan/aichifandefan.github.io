@@ -208,15 +208,9 @@ h1:before, .anchor:before {
     color: #777;
   }
   
-  /* 右侧按钮和星标区域 */
-  .paper-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
-  .stars-box {
-    margin-bottom: 15px;
+/* 星标部分 */
+.stars-box {
+    margin-bottom: 8px;
     text-align: center;
     padding: 10px;
     border: 1px solid #ddd;
@@ -225,12 +219,24 @@ h1:before, .anchor:before {
     width: 120px;
   }
   
+  /* 星标/小时显示 */
+  .rate {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+    display: block;
+  }
+  
+  /* 按钮部分的容器 */
   .button-group {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    margin-top: 10px;
   }
   
+  /* Paper 按钮 */
   .paper {
     background-color: #21A7EA;
     color: white;
@@ -242,9 +248,14 @@ h1:before, .anchor:before {
     transition: background-color 0.3s ease;
     width: 120px;
     text-align: center;
-    display: inline-block;  /* 确保链接像按钮一样显示 */
+    display: inline-block;  /* 确保按钮样式正常显示 */
   }
   
+  .paper:hover {
+    background-color: #1C8AD6;  /* 悬停效果 */
+  }
+  
+  /* Code 按钮 */
   .code {
     background-color: #0297B1;
     color: white;
@@ -256,13 +267,9 @@ h1:before, .anchor:before {
     transition: background-color 0.3s ease;
     width: 120px;
     text-align: center;
-    display: inline-block;  /* 确保链接像按钮一样显示 */
-  }
-  
-  .paper:hover {
-    background-color: #1C8AD6; /* 悬停效果 */
+    display: inline-block;  /* 确保按钮样式正常显示 */
   }
   
   .code:hover {
-    background-color: #02708A; /* 悬停效果 */
+    background-color: #02708A;  /* 悬停效果 */
   }
