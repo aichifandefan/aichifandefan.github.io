@@ -245,42 +245,6 @@ h1:before, .anchor:before {
     align-items: center;
     margin-top: 10px;
   }
-
-  .paper-actions {
-    display: flex;
-    justify-content: center; /* 水平居中对齐 */
-    align-items: center; /* 垂直居中对齐 */
-    gap: 20px; /* 设定阅读量框和按钮之间的间距 */
-  }
-  
-  /* 阅读量框的样式 */
-  .views-box {
-    background-color: #f1f1f1; /* 设置背景颜色 */
-    padding: 10px 20px; /* 增加内边距 */
-    border-radius: 8px; /* 圆角 */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-    font-size: 14px;
-    text-align: center; /* 文本居中 */
-    display: flex;
-    align-items: center; /* 图标与文本垂直居中 */
-  }
-  
-  /* 按钮部分的样式 */
-  .button-group .paper {
-    background-color: #21A7EA;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-    width: 100px;
-    text-align: center;
-  }
-  
-  .button-group .paper:hover {
-    background-color: #0056b3;
-  }
   
   /* Paper 按钮 */
   .paper {
