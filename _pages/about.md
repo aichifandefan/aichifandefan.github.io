@@ -148,7 +148,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
   </div>
 
-  <!-- 右侧按钮和星标部分 -->
+  <!-- 右侧按钮和阅读量部分 -->
   <div class="paper-actions">
     <!-- 阅读量部分 -->
     <div class="views-box">
@@ -156,41 +156,54 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
     <span class="average-rate" id="averageRate">0 views/day</span> <!-- 平均每天阅读量 -->
 
-    <!-- JavaScript 实现动态阅读量变化 -->
-    <script>
-      // 获取当前日期
-      const today = new Date().getTime();
+    <!-- 按钮部分，点击时增加阅读量 -->
+    <div class="button-group">
+      <a href="../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html" class="paper" onclick="updateViewCount()">Link</a>
+    </div>
+  </div>
 
-      // 获取当前总的阅读量和初始记录的日期
-      let totalViews = localStorage.getItem('totalViews') || 0;
-      let startDate = localStorage.getItem('startDate');
+  <!-- JavaScript 实现点击链接时增加阅读量 -->
+  <script>
+    // 定义博客页面的唯一标识符
+    let blogId = "blog-001"; // 替换为你的实际博客页面的唯一标识符
 
-      // 如果没有记录的开始日期，设置为当前日期
-      if (!startDate) {
-        startDate = today;
-        localStorage.setItem('startDate', startDate);
-      }
+    // 获取当前日期的时间戳
+    const today = new Date().getTime();
 
-      // 增加一次新的阅读量（每次页面加载时调用）
+    // 从 localStorage 获取当前博客页面的总阅读量和记录的开始日期
+    let totalViews = localStorage.getItem(`${blogId}-totalViews`) || 0;
+    let startDate = localStorage.getItem(`${blogId}-startDate`);
+
+    // 如果没有记录的开始日期，设置为当前日期
+    if (!startDate) {
+      startDate = today;
+      localStorage.setItem(`${blogId}-startDate`, startDate);
+    }
+
+    // 更新页面中的阅读量和平均阅读量
+    document.getElementById('totalViews').innerText = totalViews;
+
+    // 计算经过了多少天
+    const daysElapsed = Math.max(1, Math.floor((today - startDate) / (1000 * 60 * 60 * 24)));
+
+    // 计算平均每天的阅读量
+    const averageViewsPerDay = (totalViews / daysElapsed).toFixed(2);
+    document.getElementById('averageRate').innerText = `${averageViewsPerDay} views/day`;
+
+    // 点击链接时更新阅读量
+    function updateViewCount() {
+      // 增加一次新的阅读量
       totalViews++;
-      localStorage.setItem('totalViews', totalViews);
+      localStorage.setItem(`${blogId}-totalViews`, totalViews);
 
-      // 计算经过了多少天
-      const daysElapsed = Math.max(1, Math.floor((today - startDate) / (1000 * 60 * 60 * 24)));
-
-      // 计算平均每天的阅读量
-      const averageViewsPerDay = (totalViews / daysElapsed).toFixed(2);
+      // 重新计算平均每天的阅读量
+      const updatedAverageViewsPerDay = (totalViews / daysElapsed).toFixed(2);
 
       // 更新 HTML 内容
       document.getElementById('totalViews').innerText = totalViews;
-      document.getElementById('averageRate').innerText = `${averageViewsPerDay} views/day`;
-    </script>
-
-    <!-- 按钮部分 -->
-    <div class="button-group">
-      <a href="../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html" class="paper">Link</a>
-    </div>
-  </div>
+      document.getElementById('averageRate').innerText = `${updatedAverageViewsPerDay} views/day`;
+    }
+  </script>
 </div>
 <br/>
 <br/>
