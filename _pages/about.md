@@ -151,13 +151,16 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   <!-- 右侧按钮和阅读量部分 -->
   <div class="paper-actions">
     <!-- 阅读量部分 -->
-    <div class="stars-box">
-      <span class="views">🔍 <span id="totalViews">0</span> views</span> <!-- 总阅读量 -->
-    </div>
+    <!-- <div class="stars-box">
+      <span class="views">🔍 <span id="totalViews">0</span> views</span>  总阅读量 -->
+    <!-- </div> -->
 
     <!-- 按钮部分，点击时增加阅读量 -->
     <div class="button-group">
       <a href="../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html" class="paper" onclick="updateViewCount()">Link</a>
+      <div class="stars-box">
+        <span class="views">🔍 <span id="totalViews">0</span> views</span> <!-- 总阅读量 -->
+      </div>
     </div>
   </div>
 
