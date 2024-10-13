@@ -163,32 +163,29 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   </div>
 
   <!-- JavaScript 实现点击链接时增加阅读量 -->
+  <!-- 右侧按钮和阅读量部分 -->
+  <div class="paper-actions">
+    <!-- 阅读量部分，添加样式使其显示为一个框 -->
+    <div class="stars-box">
+      <span class="views">🔍 <span id="totalViews">0</span> views</span> <!-- 总阅读量 -->
+    </div>
+
+    <!-- 按钮部分，点击时增加阅读量 -->
+    <div class="button-group">
+      <a href="../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html" class="paper">Link</a>
+    </div>
+  </div>
+
+  <!-- JavaScript 实现点击链接时增加阅读量 -->
   <script>
     // 定义博客页面的唯一标识符
     let blogId = "blog-001"; // 替换为你的实际博客页面的唯一标识符
 
-    // 获取当前日期的时间戳
-    const today = new Date().getTime();
-
-    // 从 localStorage 获取当前博客页面的总阅读量和记录的开始日期
+    // 从 localStorage 获取当前博客页面的总阅读量
     let totalViews = localStorage.getItem(`${blogId}-totalViews`) || 0;
-    let startDate = localStorage.getItem(`${blogId}-startDate`);
 
-    // 如果没有记录的开始日期，设置为当前日期
-    if (!startDate) {
-      startDate = today;
-      localStorage.setItem(`${blogId}-startDate`, startDate);
-    }
-
-    // 更新页面中的阅读量和平均阅读量
+    // 更新页面中的阅读量显示
     document.getElementById('totalViews').innerText = totalViews;
-
-    // 计算经过了多少天
-    const daysElapsed = Math.max(1, Math.floor((today - startDate) / (1000 * 60 * 60 * 24)));
-
-    // 计算平均每天的阅读量
-    const averageViewsPerDay = (totalViews / daysElapsed).toFixed(2);
-    document.getElementById('averageRate').innerText = `${averageViewsPerDay} views/day`;
 
     // 点击链接时更新阅读量
     function updateViewCount() {
@@ -196,12 +193,8 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
       totalViews++;
       localStorage.setItem(`${blogId}-totalViews`, totalViews);
 
-      // 重新计算平均每天的阅读量
-      const updatedAverageViewsPerDay = (totalViews / daysElapsed).toFixed(2);
-
       // 更新 HTML 内容
       document.getElementById('totalViews').innerText = totalViews;
-      document.getElementById('averageRate').innerText = `${updatedAverageViewsPerDay} views/day`;
     }
   </script>
 </div>
