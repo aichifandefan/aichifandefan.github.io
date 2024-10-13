@@ -150,11 +150,41 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 
   <!-- 右侧按钮和星标部分 -->
   <div class="paper-actions">
-    <!-- 星标部分 -->
-    <div class="stars-box">
-      <span class="stars">⭐ 2,730</span>
+    <!-- 阅读量部分 -->
+    <div class="views-box">
+      <span class="views">🔍 <span id="totalViews">0</span> views</span> <!-- 总阅读量 -->
     </div>
-    <span class="rate">3.06 stars/hour</span>
+    <span class="average-rate" id="averageRate">0 views/day</span> <!-- 平均每天阅读量 -->
+
+    <!-- JavaScript 实现动态阅读量变化 -->
+    <script>
+      // 获取当前日期
+      const today = new Date().getTime();
+
+      // 获取当前总的阅读量和初始记录的日期
+      let totalViews = localStorage.getItem('totalViews') || 0;
+      let startDate = localStorage.getItem('startDate');
+
+      // 如果没有记录的开始日期，设置为当前日期
+      if (!startDate) {
+        startDate = today;
+        localStorage.setItem('startDate', startDate);
+      }
+
+      // 增加一次新的阅读量（每次页面加载时调用）
+      totalViews++;
+      localStorage.setItem('totalViews', totalViews);
+
+      // 计算经过了多少天
+      const daysElapsed = Math.max(1, Math.floor((today - startDate) / (1000 * 60 * 60 * 24)));
+
+      // 计算平均每天的阅读量
+      const averageViewsPerDay = (totalViews / daysElapsed).toFixed(2);
+
+      // 更新 HTML 内容
+      document.getElementById('totalViews').innerText = totalViews;
+      document.getElementById('averageRate').innerText = `${averageViewsPerDay} views/day`;
+    </script>
 
     <!-- 按钮部分 -->
     <div class="button-group">
