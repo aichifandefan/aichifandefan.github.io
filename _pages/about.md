@@ -85,30 +85,6 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <!-- # 💻 Projects -->
 # 💻 Blog
 
-<!-- <div class="paper-card">
-  <div class="paper-left">
-    <img src="../images/paper1.jpg" alt="Sample Image" class="paper-image">
-  </div>
-  <div class="paper-right">
-    <h3>Depth Pro: Sharp Monocular Metric Depth in Less Than a Second</h3>
-    <div class="paper-meta">
-      <span class="meta-item">apple/ml-depth-pro</span>
-      <span class="meta-item">• PyTorch</span>
-      <span class="meta-item">• 2 Oct 2024</span>
-    </div>
-    <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
-    <div class="tag">Monocular Depth Estimation</div>
-    <div class="tag">Test</div>
-    <div class="paper-stats">
-      <span class="stars">⭐ 2,730</span>
-      <span class="rate">3.06 stars/hour</span>
-    </div>
-    <div class="paper-actions">
-      <a href="../files/paper1.pdf" class="btn">Paper</a>
-      <a href="#" class="btn">Code</a>
-    </div>
-  </div>
-</div> -->
 <div class="paper-card">
   <!-- 左侧图片部分 -->
   <div class="paper-left">
@@ -147,6 +123,44 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
   </div>
 </div>
+
+<div class="paper-card">
+  <!-- 左侧图片部分 -->
+  <div class="paper-left">
+    <img src="../images/blog1.jpg" alt="Sample Image" class="paper-image">
+  </div>
+
+  <!-- 右侧内容部分 -->
+  <div class="paper-right">
+    <h3>Notion Mathematical Formula</h3>
+    <div class="paper-meta">
+      <span class="meta-item">• KaTeX</span>
+      <span class="meta-item">• 1 Jun 2022</span>
+    </div>
+    <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
+
+    <!-- 标签部分 -->
+    <div class="tags">
+      <span class="tag">Notion</span>
+      <span class="tag">Markdown</span>
+    </div>
+  </div>
+
+  <!-- 右侧按钮和星标部分 -->
+  <div class="paper-actions">
+    <!-- 星标部分 -->
+    <div class="stars-box">
+      <span class="stars">⭐ 2,730</span>
+    </div>
+    <span class="rate">3.06 stars/hour</span>
+
+    <!-- 按钮部分 -->
+    <div class="button-group">
+      <a href="../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html" class="paper">Link</a>
+    </div>
+  </div>
+</div>
+
 
 
 Notion 数学公式 [Link](../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html)
