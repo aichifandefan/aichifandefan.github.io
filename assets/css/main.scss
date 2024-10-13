@@ -208,22 +208,23 @@ h1:before, .anchor:before {
 .paper-actions {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* 垂直居中对齐 */
+    align-items: center; /* 水平居中对齐 */
     gap: 15px;
     min-width: 150px;
+    height: 100%; /* 让容器填满右侧空间，方便垂直居中 */
 }
 
 /* 按钮部分 */
 .button-group {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* 按钮与阅读量的间距 */
+    flex-direction: column; /* 垂直排列 */
+    align-items: center; /* 水平居中对齐 */
+    gap: 10px; /* 按钮和阅读量之间的间距 */
 }
 
-/* Paper 按钮 */
-.button-group .paper, .button-group .code {
+/* Link 按钮 */
+.button-group .paper {
     background-color: #21A7EA;
     color: white;
     padding: 10px 20px;
@@ -231,11 +232,11 @@ h1:before, .anchor:before {
     text-decoration: none !important;
     font-size: 14px;
     transition: background-color 0.3s ease;
-    width: 100px;
+    width: 100px; /* 按钮宽度 */
     text-align: center;
 }
 
-.button-group .paper:hover, .button-group .code:hover {
+.button-group .paper:hover {
     background-color: #0056b3;
 }
 
