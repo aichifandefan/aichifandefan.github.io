@@ -149,7 +149,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   </div>
 
   <!-- 右侧按钮和阅读量部分 -->
-  <div class="paper">
+  <div class="paper-actions">
     <!-- 阅读量部分 -->
     <div class="stars-box">
       <span class="views">🔍 <span id="totalViews">0</span> views</span> <!-- 总阅读量 -->
