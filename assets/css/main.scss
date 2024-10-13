@@ -134,16 +134,22 @@ h1:before, .anchor:before {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* 在每个卡片下方增加 30px 的间距，确保不会重叠 */
     max-width: 1200px; /* 限制整个卡片的最大宽度 */
     max-height: 250px;
     margin: 0 auto;
     transition: transform 0.2s ease;
   }
   
-  .paper-card:hover {
+.paper-card:hover {
     transform: scale(1.02);
-  }
+}
+
+  /* 确保容器不会导致卡片重叠 */
+.container {
+    display: block; /* 确保容器正常流动，避免子元素重叠 */
+    padding: 20px;
+}
   
   /* 左侧图片部分 */
   .paper-left {
