@@ -134,66 +134,66 @@ h1:before, .anchor:before {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin-bottom: 30px; /* 增加卡片下方间距，确保不会重叠 */
-    max-width: 1200px; /* 限制卡片的最大宽度 */
+    margin-bottom: 30px; /* 在每个卡片下方增加 30px 的间距，确保不会重叠 */
+    max-width: 1200px; /* 限制整个卡片的最大宽度 */
     max-height: 250px;
     margin: 0 auto;
     transition: transform 0.2s ease;
 }
-
+  
 .paper-card:hover {
     transform: scale(1.02);
 }
 
 /* 确保容器不会导致卡片重叠 */
 .container {
-    display: block;
+    display: block; /* 确保容器正常流动，避免子元素重叠 */
     padding: 20px;
     margin-top: 20px;
 }
-
+  
 /* 左侧图片部分 */
 .paper-left {
     flex: 0 1 300px; /* 固定宽度 */
-    margin-right: 20px;
-    height: 200px;
-    overflow: hidden;
+    margin-right: 20px; /* 添加右侧间距 */
+    height: 200px; /* 固定高度 */
+    overflow: hidden; /* 防止图片溢出容器 */
 }
-
+  
 .paper-image {
     width: 100%; /* 图片占据整个容器宽度 */
     height: 100%; /* 图片占据整个容器高度 */
     border-radius: 8px;
-    object-fit: cover; /* 确保图片保持宽高比 */
+    object-fit: cover; /* 确保图片保持宽高比，不变形，裁剪溢出的部分 */
 }
-
+  
 /* 右侧文本部分 */
 .paper-right {
-    flex: 1;
+    flex: 1; /* 右侧文本部分占据剩余的空间 */
     padding-left: 20px;
 }
-
+  
 .paper-right h3 {
     margin: 0;
     font-size: 18px;
     font-weight: bold;
     color: #333;
 }
-
+  
 .paper-meta {
     font-size: 14px;
     color: #555;
     margin: 5px 0;
 }
-
+  
 .paper-meta .meta-item {
     margin-right: 10px;
 }
-
+  
 .tags {
     margin: 10px 0;
 }
-
+  
 .tag {
     display: inline-block;
     padding: 5px 12px;
@@ -202,6 +202,20 @@ h1:before, .anchor:before {
     border-radius: 16px;
     font-size: 12px;
     margin-right: 10px;
+}
+  
+.paper-stats {
+    margin-top: 10px;
+}
+  
+.stars {
+    font-size: 18px;
+    font-weight: bold;
+}
+  
+.rate {
+    font-size: 14px;
+    color: #777;
 }
 
 /* 右侧按钮和阅读量部分的容器 */
@@ -212,18 +226,9 @@ h1:before, .anchor:before {
     align-items: center;
     gap: 15px;
     min-width: 150px;
-    height: 100%; /* 确保右侧部分占据整列的高度 */
 }
 
 /* 按钮部分 */
-.button-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Link 按钮 */
 .button-group .paper {
     background-color: #21A7EA;
     color: white;
@@ -242,7 +247,7 @@ h1:before, .anchor:before {
 
 /* 阅读量部分的样式 */
 .stars-box {
-    background-color: #e0e0e0; /* 调整背景颜色，让框与背景有明显区分 */
+    background-color: #f1f1f1;
     padding: 10px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -254,14 +259,67 @@ h1:before, .anchor:before {
     width: 100px;
 }
 
-/* 修改views显示方式，确保间距 */
 .stars-box span.views {
     display: flex;
     align-items: center;
 }
 
 .stars-box span.views span#totalViews {
-    margin-left: 5px; /* 给 "5" 和 "views" 之间添加一些间隔 */
+    margin-left: 5px;
+}
+/* 阅读量部分的样式（整合进星标部分） */
+.stars-box {
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    text-align: center;
+    width: 100px; /* 保持与按钮宽度一致 */
+    margin-bottom: 8px;
+}
+
+/* 按钮部分的容器 */
+.button-group {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    align-items: center; /* 水平居中对齐 */
+    gap: 10px; /* 元素之间的间距 */
+}
+
+/* Paper 按钮 */
+.button-group .paper {
+    background-color: #21A7EA;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none !important;  /* 强制移除下划线 */
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 100px; /* 确保按钮宽度固定 */
+    text-align: center;
+}
+
+.button-group .paper:hover {
+    background-color: #1C8AD6;  /* 悬停效果 */
+}
+
+/* Code 按钮 */
+.button-group .code {
+    background-color: #0297B1;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none !important;  /* 强制移除下划线 */
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 100px;
+    text-align: center;
+}
+
+.button-group .code:hover {
+    background-color: #02708A;  /* 悬停效果 */
 }
 
 // /* 卡片容器 */
