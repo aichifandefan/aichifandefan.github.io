@@ -123,7 +123,8 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
   </div>
 </div>
-
+<br/>
+<br/>
 
 <div class="paper-card">
   <!-- 左侧图片部分 -->
@@ -161,7 +162,8 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
   </div>
 </div>
-
+<br/>
+<br/>
 
 
 Notion 数学公式 [Link](../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html)
