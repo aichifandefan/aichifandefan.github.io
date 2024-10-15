@@ -85,13 +85,13 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <!-- # 💻 Projects -->
 # 💻 Blog
 
-<div class="paper-card">
-  <!-- 左侧图片部分 -->
+<!-- <div class="paper-card">
+
   <div class="paper-left">
     <img src="../images/paper2.png" alt="Sample Image" class="paper-image">
   </div>
 
-  <!-- 右侧内容部分 -->
+
   <div class="paper-right">
     <h3>Depth Pro: Sharp Monocular Metric Depth in Less Than a Second</h3>
     <div class="paper-meta">
@@ -101,22 +101,21 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
     <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
 
-    <!-- 标签部分 -->
     <div class="tags">
       <span class="tag">Monocular Depth Estimation</span>
       <span class="tag">Test</span>
     </div>
   </div>
 
-  <!-- 右侧按钮和星标部分 -->
+
   <div class="paper-actions">
-    <!-- 星标部分 -->
+
     <div class="stars-box">
       <span class="stars">⭐ 2,730</span>
     </div>
     <span class="rate">3.06 stars/hour</span>
 
-    <!-- 按钮部分 -->
+
     <div class="button-group">
       <a href="#" class="paper">Paper</a>
       <a href="#" class="code">Code</a>
@@ -124,7 +123,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   </div>
 </div>
 <br/>
-<br/>
+<br/> -->
 
 <div class="paper-card">
   <!-- 左侧图片部分 -->
@@ -165,6 +164,67 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   <script>
     // 定义博客页面的唯一标识符
     let blogId = "blog-001"; // 替换为你的实际博客页面的唯一标识符
+
+    // 从 localStorage 获取当前博客页面的总阅读量和记录的开始日期
+    let totalViews = localStorage.getItem(`${blogId}-totalViews`) || 0;
+
+    // 更新页面中的阅读量和平均阅读量
+    document.getElementById('totalViews').innerText = totalViews;
+
+    // 点击链接时更新阅读量
+    function updateViewCount() {
+      // 增加一次新的阅读量
+      totalViews++;
+      localStorage.setItem(`${blogId}-totalViews`, totalViews);
+
+      // 更新 HTML 内容
+      document.getElementById('totalViews').innerText = totalViews;
+    }
+  </script>
+</div>
+<br/>
+<br/>
+
+
+<div class="paper-card">
+  <!-- 左侧图片部分 -->
+  <div class="paper-left">
+    <img src="../images/blog2.jpg" alt="Sample Image" class="paper-image">
+  </div>
+
+  <!-- 右侧内容部分 -->
+  <div class="paper-right">
+    <h3>Notion Mathematical Formula</h3>
+    <div class="paper-meta">
+      <span class="meta-item">• Ubuntu</span>
+      <span class="meta-item">• 15 Jan 2023</span>
+    </div>
+    <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
+
+    <!-- 标签部分 -->
+    <div class="tags">
+      <span class="tag">Notion</span>
+      <span class="tag">Markdown</span>
+    </div>
+  </div>
+
+  <!-- 右侧按钮和阅读量部分 -->
+  <div class="paper-actions">
+    <!-- 阅读量部分 -->
+    <div class="stars-box">
+      <span class="views">🔍 <span id="totalViews">0</span> views</span> <!-- 总阅读量 -->
+    </div>
+
+    <!-- 按钮部分，点击时增加阅读量 -->
+    <div class="button-group">
+      <a href="../files/Blog/Ubuntu/Ubuntu.html" class="paper" onclick="updateViewCount()">Link</a>
+    </div>
+  </div>
+
+  <!-- JavaScript 实现点击链接时增加阅读量 -->
+  <script>
+    // 定义博客页面的唯一标识符
+    let blogId = "blog-002"; // 替换为你的实际博客页面的唯一标识符
 
     // 从 localStorage 获取当前博客页面的总阅读量和记录的开始日期
     let totalViews = localStorage.getItem(`${blogId}-totalViews`) || 0;
