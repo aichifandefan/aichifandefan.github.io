@@ -125,13 +125,14 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <br/>
 <br/> -->
 
+
+
+<!-- 第一篇博客 -->
 <div class="paper-card">
-  <!-- 左侧图片部分 -->
   <div class="paper-left">
     <img src="../images/blog1.jpg" alt="Sample Image" class="paper-image">
   </div>
 
-  <!-- 右侧内容部分 -->
   <div class="paper-right">
     <h3>Notion Mathematical Formula</h3>
     <div class="paper-meta">
@@ -140,59 +141,29 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
     <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
 
-    <!-- 标签部分 -->
     <div class="tags">
       <span class="tag">Notion</span>
       <span class="tag">Markdown</span>
     </div>
   </div>
 
-  <!-- 右侧按钮和阅读量部分 -->
   <div class="paper-actions">
-    <!-- 阅读量部分 -->
     <div class="stars-box">
-      <span class="views">🔍 <span id="totalViews">0</span> views</span> <!-- 总阅读量 -->
+      <span class="views">🔍 <span id="totalViews1">0</span> views</span> <!-- 修改ID -->
     </div>
 
-    <!-- 按钮部分，点击时增加阅读量 -->
     <div class="button-group">
-      <a href="../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html" class="paper" onclick="updateViewCount()">Link</a>
+      <a href="../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html" class="paper" onclick="updateViewCount('blog-001', 'totalViews1')">Link</a> <!-- 修改onclick函数 -->
     </div>
   </div>
-
-  <!-- JavaScript 实现点击链接时增加阅读量 -->
-  <script>
-    // 定义博客页面的唯一标识符
-    let blogId = "blog-001"; // 替换为你的实际博客页面的唯一标识符
-
-    // 从 localStorage 获取当前博客页面的总阅读量和记录的开始日期
-    let totalViews = localStorage.getItem(`${blogId}-totalViews`) || 0;
-
-    // 更新页面中的阅读量和平均阅读量
-    document.getElementById('totalViews').innerText = totalViews;
-
-    // 点击链接时更新阅读量
-    function updateViewCount() {
-      // 增加一次新的阅读量
-      totalViews++;
-      localStorage.setItem(`${blogId}-totalViews`, totalViews);
-
-      // 更新 HTML 内容
-      document.getElementById('totalViews').innerText = totalViews;
-    }
-  </script>
 </div>
-<br/>
-<br/>
 
-
+<!-- 第二篇博客 -->
 <div class="paper-card">
-  <!-- 左侧图片部分 -->
   <div class="paper-left">
     <img src="../images/blog2.jpg" alt="Sample Image" class="paper-image">
   </div>
 
-  <!-- 右侧内容部分 -->
   <div class="paper-right">
     <h3>Notion Mathematical Formula</h3>
     <div class="paper-meta">
@@ -201,50 +172,47 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
     <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
 
-    <!-- 标签部分 -->
     <div class="tags">
       <span class="tag">Notion</span>
       <span class="tag">Markdown</span>
     </div>
   </div>
 
-  <!-- 右侧按钮和阅读量部分 -->
   <div class="paper-actions">
-    <!-- 阅读量部分 -->
     <div class="stars-box">
-      <span class="views">🔍 <span id="totalViews">0</span> views</span> <!-- 总阅读量 -->
+      <span class="views">🔍 <span id="totalViews2">0</span> views</span> <!-- 修改ID -->
     </div>
 
-    <!-- 按钮部分，点击时增加阅读量 -->
     <div class="button-group">
-      <a href="../files/Blog/Ubuntu/Ubuntu.html" class="paper" onclick="updateViewCount()">Link</a>
+      <a href="../files/Blog/Ubuntu/Ubuntu.html" class="paper" onclick="updateViewCount('blog-002', 'totalViews2')">Link</a> <!-- 修改onclick函数 -->
     </div>
   </div>
-
-  <!-- JavaScript 实现点击链接时增加阅读量 -->
-  <script>
-    // 定义博客页面的唯一标识符
-    let blogId = "blog-002"; // 替换为你的实际博客页面的唯一标识符
-
-    // 从 localStorage 获取当前博客页面的总阅读量和记录的开始日期
-    let totalViews = localStorage.getItem(`${blogId}-totalViews`) || 0;
-
-    // 更新页面中的阅读量和平均阅读量
-    document.getElementById('totalViews').innerText = totalViews;
-
-    // 点击链接时更新阅读量
-    function updateViewCount() {
-      // 增加一次新的阅读量
-      totalViews++;
-      localStorage.setItem(`${blogId}-totalViews`, totalViews);
-
-      // 更新 HTML 内容
-      document.getElementById('totalViews').innerText = totalViews;
-    }
-  </script>
 </div>
-<br/>
-<br/>
+
+<!-- JavaScript -->
+<script>
+  function updateViewCount(blogId, viewId) {
+    // 从 localStorage 获取当前博客页面的总阅读量
+    let totalViews = localStorage.getItem(`${blogId}-totalViews`) || 0;
+    totalViews++;
+
+    // 将新的阅读量存储到 localStorage
+    localStorage.setItem(`${blogId}-totalViews`, totalViews);
+
+    // 更新对应页面中的阅读量
+    document.getElementById(viewId).innerText = totalViews;
+  }
+
+  // 初始化函数，加载时显示当前阅读量
+  function initViewCount(blogId, viewId) {
+    let totalViews = localStorage.getItem(`${blogId}-totalViews`) || 0;
+    document.getElementById(viewId).innerText = totalViews;
+  }
+
+  // 调用初始化函数分别为每个博客页面设置
+  initViewCount('blog-001', 'totalViews1');
+  initViewCount('blog-002', 'totalViews2');
+</script>
 
 
 Notion 数学公式 [Link](../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html)
