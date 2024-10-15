@@ -146,8 +146,6 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
       <span class="tag">Markdown</span>
     </div>
   </div>
-  <br/>
-  <br/>
 
   <div class="paper-actions">
     <div class="stars-box">
@@ -159,6 +157,8 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
   </div>
 </div>
+<br/>
+<br/>
 
 <!-- 第二篇博客 -->
 <div class="paper-card">
