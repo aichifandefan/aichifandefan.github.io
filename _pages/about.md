@@ -193,6 +193,39 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <br/>
 <br/>
 
+<!-- 第三篇博客 -->
+<div class="paper-card">
+  <div class="paper-left">
+    <img src="../images/blog3.jpg" alt="Sample Image" class="paper-image">
+  </div>
+
+  <div class="paper-right">
+    <h3>Notion Mathematical Formula</h3>
+    <div class="paper-meta">
+      <span class="meta-item">• Ubuntu</span>
+      <span class="meta-item">• 15 Jan 2023</span>
+    </div>
+    <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
+
+    <div class="tags">
+      <span class="tag">Notion</span>
+      <span class="tag">Markdown</span>
+    </div>
+  </div>
+
+  <div class="paper-actions">
+    <div class="stars-box">
+      <span class="views">🔍 <span id="totalViews3">0</span> views</span> <!-- 修改ID -->
+    </div>
+
+    <div class="button-group">
+      <a href="../files/Blog/DDPM%20Formula%20Derivation/DDPM%20Formula%20Derivation.html" class="paper" onclick="updateViewCount('blog-003', 'totalViews3')">Link</a> <!-- 修改onclick函数 -->
+    </div>
+  </div>
+</div>
+<br/>
+<br/>
+
 <!-- JavaScript -->
 <script>
   function updateViewCount(blogId, viewId) {
@@ -216,6 +249,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   // 调用初始化函数分别为每个博客页面设置
   initViewCount('blog-001', 'totalViews1');
   initViewCount('blog-002', 'totalViews2');
+  initViewCount('blog-003', 'totalViews3');
 </script>
 
 
