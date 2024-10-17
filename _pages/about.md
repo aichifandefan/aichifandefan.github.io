@@ -136,13 +136,13 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   <div class="paper-right">
     <h3>Notion Mathematical Formula</h3>
     <div class="paper-meta">
-      <span class="meta-item">• KaTeX</span>
+      <span class="meta-item">• Notion</span>
       <span class="meta-item">• 1 Jun 2022</span>
     </div>
-    <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
+    <p>The blog provides detailed instructions on using LaTeX syntax to write mathematical formulas in Notion. It covers essential expressions such as fractions, roots, matrices, subscripts, superscripts, and other commonly used mathematical formulas. It demonstrates how to insert and display these formulas correctly in Notion, improving the efficiency and quality of formula formatting. Specific code examples and corresponding results are offered, making it easy for users to reference and apply these formulas in their own notes.</p>
 
     <div class="tags">
-      <span class="tag">Notion</span>
+      <span class="tag">KaTeX</span>
       <span class="tag">Markdown</span>
     </div>
   </div>
@@ -167,16 +167,17 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   </div>
 
   <div class="paper-right">
-    <h3>Notion Mathematical Formula</h3>
+    <h3>4090x2 Linux Deep Learning Server Configuration Tutorial</h3>
     <div class="paper-meta">
-      <span class="meta-item">• Ubuntu</span>
+      <span class="meta-item">• GPU Server Configuration</span>
       <span class="meta-item">• 15 Jan 2023</span>
     </div>
-    <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
+    <p>This blog is a tutorial for configuring an Ubuntu 4090 deep learning server. It provides detailed steps on setting up the server, including installing necessary drivers, software, and deep learning frameworks. The blog is designed to help users optimize their server for deep learning tasks, covering essential configurations to ensure efficient performance with the 4090 GPU.</p>
 
     <div class="tags">
-      <span class="tag">Notion</span>
-      <span class="tag">Markdown</span>
+      <span class="tag">Ubuntu</span>
+      <span class="tag">Linux Configuration</span>
+      <span class="tag">Deep Learning</span>
     </div>
   </div>
 
@@ -196,20 +197,21 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <!-- 第三篇博客 -->
 <div class="paper-card">
   <div class="paper-left">
-    <img src="../images/blog3.jpg" alt="Sample Image" class="paper-image">
+    <img src="../images/blog3.png" alt="Sample Image" class="paper-image">
   </div>
 
   <div class="paper-right">
-    <h3>Notion Mathematical Formula</h3>
+    <h3>DDPM Formula Derivation</h3>
     <div class="paper-meta">
-      <span class="meta-item">• Ubuntu</span>
-      <span class="meta-item">• 15 Jan 2023</span>
+      <span class="meta-item">• Diffusion Models</span>
+      <span class="meta-item">• 8 Dec 2023</span>
     </div>
-    <p>We present a foundation model for zero-shot metric monocular depth estimation.</p>
+    <p>This blog provides a detailed derivation of the Denoising Diffusion Probabilistic Model (DDPM) formulas. It explains the mathematical foundations behind DDPM, breaking down key steps and concepts such as the forward and reverse diffusion processes, and noise scheduling. The blog aims to help readers understand the core equations and mechanics of DDPM, making it easier to grasp its application in generative modeling tasks.</p>
 
     <div class="tags">
-      <span class="tag">Notion</span>
-      <span class="tag">Markdown</span>
+      <span class="tag">Generative Models</span>
+      <span class="tag">Deep Learning</span>
+      <span class="tag">Mathematical Derivation</span>
     </div>
   </div>
 
