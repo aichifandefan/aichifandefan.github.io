@@ -139,7 +139,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
       <span class="meta-item">• Notion</span>
       <span class="meta-item">• 1 Jun 2022</span>
     </div>
-    <p>The blog provides detailed instructions on using LaTeX syntax to write mathematical formulas in Notion. It covers essential expressions such as fractions, roots, matrices, subscripts, superscripts, and other commonly used mathematical formulas. It demonstrates how to insert and display these formulas correctly in Notion, improving the efficiency and quality of formula formatting. Specific code examples and corresponding results are offered, making it easy for users to reference and apply these formulas in their own notes.</p>
+    <p>The blog provides detailed instructions on using KaTeX to write mathematical formulas in Notion, covering expressions like fractions, roots, matrices, subscripts, and superscripts. It explains how to insert and display these formulas effectively, with code examples and results for easy reference and application.</p>
 
     <div class="tags">
       <span class="tag">KaTeX</span>
@@ -172,7 +172,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
       <span class="meta-item">• GPU Server Configuration</span>
       <span class="meta-item">• 15 Jan 2023</span>
     </div>
-    <p>This blog is a tutorial for configuring an Ubuntu 4090 deep learning server. It provides detailed steps on setting up the server, including installing necessary drivers, software, and deep learning frameworks. The blog is designed to help users optimize their server for deep learning tasks, covering essential configurations to ensure efficient performance with the 4090 GPU.</p>
+    <p>This blog is a tutorial on configuring an Ubuntu 4090 deep learning server, detailing steps for installing drivers, software, and frameworks. It helps users optimize their server for efficient deep learning performance with the 4090 GPU.</p>
 
     <div class="tags">
       <span class="tag">Ubuntu</span>
@@ -206,7 +206,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
       <span class="meta-item">• Diffusion Models</span>
       <span class="meta-item">• 8 Dec 2023</span>
     </div>
-    <p>This blog provides a detailed derivation of the Denoising Diffusion Probabilistic Model (DDPM) formulas. It explains the mathematical foundations behind DDPM, breaking down key steps and concepts such as the forward and reverse diffusion processes, and noise scheduling. The blog aims to help readers understand the core equations and mechanics of DDPM, making it easier to grasp its application in generative modeling tasks.</p>
+    <p>This blog offers a detailed derivation of Denoising Diffusion Probabilistic Model (DDPM) formulas, explaining key concepts like forward/reverse diffusion and noise scheduling. It helps readers understand DDPM’s core equations and its application in generative modeling.</p>
 
     <div class="tags">
       <span class="tag">Generative Models</span>
