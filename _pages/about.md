@@ -160,7 +160,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <br/>
 <br/>
 
-<!-- 第二篇博客 -->
+<!-- 第三篇博客 -->
 <div class="paper-card">
   <div class="paper-left">
     <img src="../images/blog2.jpg" alt="Sample Image" class="paper-image">
@@ -190,6 +190,8 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
     </div>
   </div>
 </div>
+<br/>
+<br/>
 
 <!-- JavaScript -->
 <script>
