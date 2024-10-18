@@ -17,11 +17,12 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I’m a senior student majoring in Robotics Engineering at [Guangzhou University](https://www.gzhu.edu.cn/). My research interest includes：
--  **AI for Healthy**
+I have graduated with a Bachelor’s degree in Robotics Engineering from [Guangzhou University](https://www.gzhu.edu.cn/). I worked on "AI for Social Good" and my research interest includes：
+-  **Hyperbolic Theory**
+-  **AI for Healthcare**
 -  **Medical Image Processing**
 -  **Computer Vision**
--  **Machine Learning**
+-  **Natural Language Processing**
 
 
 I am very fortunate to be advised by [Prof. Huang](https://jd.gzhu.edu.cn/info/1150/3954.htm) from Guangzhou University.
@@ -37,7 +38,7 @@ You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 # 📝 Publications
 
 - Occult lymph node metastasis prediction in non-small cell lung cancer based self-supervised pretrained and hyperbolic theory <br/>
-**Haizhou Xu**, Jiaqi Wu, Yujia Yu, Wenkai Huang*, Jiong Ni* <br/>
+**Haizhou Xu**, Jiaqi Wu, Yujia Yu, Wenkai Huang<sup>*<sup>, Jiong Ni<sup>*<sup> <br/>
 *Applied Soft Computing* | [paper](../files/paper3.pdf)
 
 <!-- <div class="paper-box">
