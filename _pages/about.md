@@ -57,7 +57,7 @@ You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 
 
 - MRP-Net: Seizure detection method based on modified recurrence plot and additive attention convolution neural network <br/>
-Wenkai Huang*, **Haizhou Xu**, Yujia Yu <br/>
+Wenkai Huang<sup>†</sup>, **Haizhou Xu**, Yujia Yu <br/>
 *Biomedical Signal Processing and Control* | [paper](../files/paper2.pdf)
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">new</div><img src='../images/paper2.png' alt="sym" width="100%"></div></div>
@@ -69,7 +69,7 @@ Wenkai Huang*, **Haizhou Xu**, Yujia Yu <br/>
 
 
 - Hyperbolic Music Transformer for Structured Music Generation <br/>
-Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
+Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu<sup>†</sup> <br/>
 *IEEE Access* | [paper](../files/paper1.pdf)
 
 
