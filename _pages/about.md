@@ -125,35 +125,34 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <br/>
 <br/> -->
 
-
-
 <!-- 第一篇博客 -->
 <div class="paper-card">
   <div class="paper-left">
-    <img src="../images/blog1.jpg" alt="Sample Image" class="paper-image">
+    <img src="../images/ST-SSL.jpg" alt="Sample Image" class="paper-image">
   </div>
 
   <div class="paper-right">
-    <h3>Notion Mathematical Formula</h3>
+    <h3>DDPM Formula Derivation</h3>
     <div class="paper-meta">
-      <span class="meta-item">• Notion</span>
-      <span class="meta-item">• 1 Jun 2022</span>
+      <span class="meta-item">• Diffusion Models</span>
+      <span class="meta-item">• 8 Dec 2023</span>
     </div>
-    <p>The blog provides detailed instructions on using KaTeX to write mathematical formulas in Notion, covering expressions like fractions, roots, matrices, subscripts, and superscripts. It explains how to insert and display these formulas effectively, with code examples and results for easy reference and application.</p>
+    <p>This blog offers a detailed derivation of Denoising Diffusion Probabilistic Model (DDPM) formulas, explaining key concepts like forward/reverse diffusion and noise scheduling. It helps readers understand DDPM’s core equations and its application in generative modeling.</p>
 
     <div class="tags">
-      <span class="tag">KaTeX</span>
-      <span class="tag">Markdown</span>
+      <span class="tag">Generative Models</span>
+      <span class="tag">Deep Learning</span>
+      <span class="tag">Mathematical Derivation</span>
     </div>
   </div>
 
   <div class="paper-actions">
     <div class="stars-box">
-      <span class="views">🔍 <span id="totalViews1">0</span> views</span> <!-- 修改ID -->
+      <span class="views">🔍 <span id="totalViews4">0</span> views</span> <!-- 修改ID -->
     </div>
 
     <div class="button-group">
-      <a href="../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html" class="paper" onclick="updateViewCount('blog-001', 'totalViews1')">Link</a> <!-- 修改onclick函数 -->
+      <a href="../files/Blog/ST-SSL/ST-SSL.html" class="paper" onclick="updateViewCount('blog-004', 'totalViews4')">Link</a> <!-- 修改onclick函数 -->
     </div>
   </div>
 </div>
@@ -161,40 +160,6 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <br/>
 
 <!-- 第二篇博客 -->
-<div class="paper-card">
-  <div class="paper-left">
-    <img src="../images/blog2.jpg" alt="Sample Image" class="paper-image">
-  </div>
-
-  <div class="paper-right">
-    <h3>4090x2 Linux Deep Learning Server Configuration Tutorial</h3>
-    <div class="paper-meta">
-      <span class="meta-item">• GPU Server Configuration</span>
-      <span class="meta-item">• 15 Jan 2023</span>
-    </div>
-    <p>This blog is a tutorial on configuring an Ubuntu 4090 deep learning server, detailing steps for installing drivers, software, and frameworks. It helps users optimize their server for efficient deep learning performance with the 4090 GPU.</p>
-
-    <div class="tags">
-      <span class="tag">Ubuntu</span>
-      <span class="tag">Linux Configuration</span>
-      <span class="tag">Deep Learning</span>
-    </div>
-  </div>
-
-  <div class="paper-actions">
-    <div class="stars-box">
-      <span class="views">🔍 <span id="totalViews2">0</span> views</span> <!-- 修改ID -->
-    </div>
-
-    <div class="button-group">
-      <a href="../files/Blog/Ubuntu/Ubuntu.html" class="paper" onclick="updateViewCount('blog-002', 'totalViews2')">Link</a> <!-- 修改onclick函数 -->
-    </div>
-  </div>
-</div>
-<br/>
-<br/>
-
-<!-- 第三篇博客 -->
 <div class="paper-card">
   <div class="paper-left">
     <img src="../images/blog3.png" alt="Sample Image" class="paper-image">
@@ -228,6 +193,73 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
 <br/>
 <br/>
 
+<!-- 第三篇博客 -->
+<div class="paper-card">
+  <div class="paper-left">
+    <img src="../images/blog2.jpg" alt="Sample Image" class="paper-image">
+  </div>
+
+  <div class="paper-right">
+    <h3>4090x2 Linux Deep Learning Server Configuration Tutorial</h3>
+    <div class="paper-meta">
+      <span class="meta-item">• GPU Server Configuration</span>
+      <span class="meta-item">• 15 Jan 2023</span>
+    </div>
+    <p>This blog is a tutorial on configuring an Ubuntu 4090 deep learning server, detailing steps for installing drivers, software, and frameworks. It helps users optimize their server for efficient deep learning performance with the 4090 GPU.</p>
+
+    <div class="tags">
+      <span class="tag">Ubuntu</span>
+      <span class="tag">Linux Configuration</span>
+      <span class="tag">Deep Learning</span>
+    </div>
+  </div>
+
+  <div class="paper-actions">
+    <div class="stars-box">
+      <span class="views">🔍 <span id="totalViews2">0</span> views</span> <!-- 修改ID -->
+    </div>
+
+    <div class="button-group">
+      <a href="../files/Blog/Ubuntu/Ubuntu.html" class="paper" onclick="updateViewCount('blog-002', 'totalViews2')">Link</a> <!-- 修改onclick函数 -->
+    </div>
+  </div>
+</div>
+<br/>
+<br/>
+
+<!-- 第四篇博客 -->
+<div class="paper-card">
+  <div class="paper-left">
+    <img src="../images/blog1.jpg" alt="Sample Image" class="paper-image">
+  </div>
+
+  <div class="paper-right">
+    <h3>Notion Mathematical Formula</h3>
+    <div class="paper-meta">
+      <span class="meta-item">• Notion</span>
+      <span class="meta-item">• 1 Jun 2022</span>
+    </div>
+    <p>The blog provides detailed instructions on using KaTeX to write mathematical formulas in Notion, covering expressions like fractions, roots, matrices, subscripts, and superscripts. It explains how to insert and display these formulas effectively, with code examples and results for easy reference and application.</p>
+
+    <div class="tags">
+      <span class="tag">KaTeX</span>
+      <span class="tag">Markdown</span>
+    </div>
+  </div>
+
+  <div class="paper-actions">
+    <div class="stars-box">
+      <span class="views">🔍 <span id="totalViews1">0</span> views</span> <!-- 修改ID -->
+    </div>
+
+    <div class="button-group">
+      <a href="../files/Blog/Notion%20mathematical%20formula/notion%20mathematical%20formula.html" class="paper" onclick="updateViewCount('blog-001', 'totalViews1')">Link</a> <!-- 修改onclick函数 -->
+    </div>
+  </div>
+</div>
+<br/>
+<br/>
+
 <!-- JavaScript -->
 <script>
   function updateViewCount(blogId, viewId) {
@@ -252,6 +284,7 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   initViewCount('blog-001', 'totalViews1');
   initViewCount('blog-002', 'totalViews2');
   initViewCount('blog-003', 'totalViews3');
+  initViewCount('blog-004', 'totalViews4');
 </script>
 
 # 🎖 Honors and Awards
