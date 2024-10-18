@@ -32,7 +32,7 @@ You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 # 🔥 News
 - *2024.06*: &nbsp;🎉🎉 ‘Occult lymph node metastasis prediction in non-small cell lung cancer based self-supervised pretrained and hyperbolic theory’ have been accepted by **Applied Soft Computing**. [Link](https://www.sciencedirect.com/science/article/abs/pii/S1568494624007233) (Top Journal Q1 IF=7.2)
 - *2023.10*: &nbsp;🎉🎉 I received a first prize scholarship.
-- *2023.05*: &nbsp;🎉🎉 ‘MRP-Net: Seizure detection method based on modified recurrence plot and additive attention convolution neural network’ have been accepted by **Biomedical Signal Processing and Control***. [Link](https://www.sciencedirect.com/science/article/abs/pii/S1746809423005980) (First Student Author) (Q1 IF=4.9)
+- *2023.05*: &nbsp;🎉🎉 ‘MRP-Net: Seizure detection method based on modified recurrence plot and additive attention convolution neural network’ have been accepted by **Biomedical Signal Processing and Control**. [Link](https://www.sciencedirect.com/science/article/abs/pii/S1746809423005980) (First Student Author) (Q1 IF=4.9)
 - *2023.03*: &nbsp;🎉🎉 ‘Hyperbolic Music Transformer for Structured Music Generation’ have been accepted by **IEEE Access**. [Link](https://ieeexplore.ieee.org/document/10070602) (Q2 IF=3.4)
 
 # 📝 Publications
