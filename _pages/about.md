@@ -132,16 +132,17 @@ Wenkai Huang, Yujia Yu, **Haizhou Xu**, Zhiwen Su, Yu Wu <br/>
   </div>
 
   <div class="paper-right">
-    <h3>DDPM Formula Derivation</h3>
+    <h3>ST-SSL paper and code notes</h3>
     <div class="paper-meta">
-      <span class="meta-item">• Diffusion Models</span>
-      <span class="meta-item">• 8 Dec 2023</span>
+      <span class="meta-item">• Traffic prediction</span>
+      <span class="meta-item">• 10 Oct 2024</span>
     </div>
-    <p>This blog offers a detailed derivation of Denoising Diffusion Probabilistic Model (DDPM) formulas, explaining key concepts like forward/reverse diffusion and noise scheduling. It helps readers understand DDPM’s core equations and its application in generative modeling.</p>
+    <p>This blog provides an overview of ST-SSL (Spatial-Temporal Self-Supervised Learning), a framework designed for learning from spatial-temporal graph data. It introduces the key components of ST-SSL, including adaptive graph augmentation, spatial-temporal encoding, and self-supervised learning techniques. </p>
 
     <div class="tags">
-      <span class="tag">Generative Models</span>
+      <span class="tag">Paper notes</span>
       <span class="tag">Deep Learning</span>
+      <span class="tag">GNN</span>
       <span class="tag">Mathematical Derivation</span>
     </div>
   </div>
