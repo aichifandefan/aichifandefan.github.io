@@ -38,7 +38,7 @@ You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 # 📝 Publications
 
 - Occult lymph node metastasis prediction in non-small cell lung cancer based self-supervised pretrained and hyperbolic theory <br/>
-**Haizhou Xu**, Jiaqi Wu, Yujia Yu, Wenkai Huang<sup>*<sup>, Jiong Ni<sup>*<sup> <br/>
+**Haizhou Xu**, Jiaqi Wu, Yujia Yu, Wenkai Huang<sup>*</sup>, Jiong Ni<sup>*</sup> <br/>
 *Applied Soft Computing* | [paper](../files/paper3.pdf)
 
 <!-- <div class="paper-box">
