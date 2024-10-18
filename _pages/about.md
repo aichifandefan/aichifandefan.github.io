@@ -27,7 +27,7 @@ I have graduated with a Bachelor’s degree in Robotics Engineering from [Guangz
 
 I am very fortunate to be advised by [Prof. Huang](https://jd.gzhu.edu.cn/info/1150/3954.htm) from Guangzhou University.
 
-You can find my CV here:[ Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
+You can find my CV here:[Haizhou Xu’s Curriculum Vitae](../files/CV.pdf).
 
 # 🔥 News
 - *2024.06*: &nbsp;🎉🎉 ‘Occult lymph node metastasis prediction in non-small cell lung cancer based self-supervised pretrained and hyperbolic theory’ have been accepted by **Applied Soft Computing**. [Link](https://www.sciencedirect.com/science/article/abs/pii/S1568494624007233) (Top Journal Q1 IF=7.2)
