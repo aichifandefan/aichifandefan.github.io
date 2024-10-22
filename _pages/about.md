@@ -18,8 +18,8 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 I have graduated with a Bachelor’s degree in Robotics Engineering from [Guangzhou University](https://www.gzhu.edu.cn/). I worked on "AI for Social Good" and my research interest includes：
--  **Hyperbolic Theory**
 -  **AI for Healthcare**
+-  **Multimodal Models**
 -  **Medical Image Processing**
 -  **Computer Vision**
 -  **Natural Language Processing**
