@@ -324,159 +324,323 @@ h1:before, .anchor:before {
 
 /* 卡片容器 */
 .paper-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 30px; /* 在每个卡片下方增加 30px 的间距，确保不会重叠 */
-    max-width: 1200px; /* 限制整个卡片的最大宽度 */
-    max-height: 250px;
-    margin: 0 auto;
-    transition: transform 0.2s ease;
-  }
-  
-.paper-card:hover {
-    transform: scale(1.02);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: transform 0.2s ease;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
-  /* 确保容器不会导致卡片重叠 */
-.container {
-    display: block; /* 确保容器正常流动，避免子元素重叠 */
-    padding: 20px;
-    margin-top: 20px;
+.paper-card:hover {
+  transform: scale(1.02);
 }
-  
-  /* 左侧图片部分 */
-  .paper-left {
-    flex: 0 1 300px; /* 固定宽度 */
-    margin-right: 20px; /* 添加右侧间距 */
-    height: 200px; /* 固定高度 */
-    overflow: hidden; /* 防止图片溢出容器 */
-  }
-  
-  .paper-image {
-    width: 100%; /* 图片占据整个容器宽度 */
-    height: 100%; /* 图片占据整个容器高度 */
-    border-radius: 8px;
-    object-fit: cover; /* 确保图片保持宽高比，不变形，裁剪溢出的部分 */
-  }
-  
-  /* 右侧文本部分 */
-  .paper-right {
-    flex: 1; /* 右侧文本部分占据剩余的空间 */
-    padding-left: 20px;
-  }
-  
-  .paper-right h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .paper-meta {
-    font-size: 14px;
-    color: #555;
-    margin: 5px 0;
-  }
-  
-  .paper-meta .meta-item {
-    margin-right: 10px;
-  }
-  
-  .tags {
-    margin: 10px 0;
-  }
-  
-  .tag {
-    display: inline-block;
-    padding: 5px 12px;
-    background-color: #eef;
-    color: #0056b3;
-    border-radius: 16px;
-    font-size: 12px;
-    margin-right: 10px;
-  }
-  
-  .paper-stats {
-    margin-top: 10px;
-  }
-  
-  .stars {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .rate {
-    font-size: 14px;
-    color: #777;
-  }
-  
-/* 星标部分 */
+
+/* 容器 */
+.container {
+  display: block;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* 左侧图片部分 */
+.paper-left {
+  flex: 0 1 30%; /* Set to 30% to make it responsive */
+  margin-right: 20px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.paper-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* 右侧文本部分 */
+.paper-right {
+  flex: 1; /* This part takes the remaining space */
+  padding-left: 20px;
+}
+
+/* 改变标题和文本的字体大小 */
+.paper-right h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.paper-meta {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.paper-meta .meta-item {
+  margin-right: 10px;
+}
+
+.tags {
+  margin: 10px 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 12px;
+  background-color: #eef;
+  color: #0056b3;
+  border-radius: 16px;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.paper-stats {
+  margin-top: 10px;
+}
+
 .stars-box {
-    margin-bottom: 8px;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    background-color: #f0f0f0;
-    width: 120px;
+  margin-bottom: 8px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #f0f0f0;
+  width: 120px;
+}
+
+.rate {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #777;
+  text-align: center;
+  display: block;
+}
+
+/* 按钮部分的容器 */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.paper {
+  background-color: #21A7EA;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  width: 120px;
+  text-align: center;
+  display: inline-block;
+}
+
+.paper:hover {
+  background-color: #1C8AD6;
+}
+
+.code {
+  background-color: #0297B1;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  width: 120px;
+  text-align: center;
+  display: inline-block;
+}
+
+.code:hover {
+  background-color: #02708A;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .paper-left {
+      flex: 0 1 100%; /* Image will take full width on small screens */
+      margin-bottom: 15px; /* Add spacing below the image */
+      height: auto;
   }
+
+  .paper-right {
+      flex: 1 1 100%; /* Text will take full width */
+      padding-left: 0; /* Remove left padding on small screens */
+  }
+
+  .paper-card {
+      flex-direction: column; /* Stack vertically */
+  }
+}
+
+// /* 卡片容器 */
+// .paper-card {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: flex-start;
+//     background-color: #f9f9f9;
+//     border-radius: 12px;
+//     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//     padding: 20px;
+//     margin-bottom: 30px; /* 在每个卡片下方增加 30px 的间距，确保不会重叠 */
+//     max-width: 1200px; /* 限制整个卡片的最大宽度 */
+//     max-height: 250px;
+//     margin: 0 auto;
+//     transition: transform 0.2s ease;
+//   }
   
-  /* 星标/小时显示 */
-  .rate {
-    margin-top: 4px;
-    font-size: 14px;
-    color: #777;
-    text-align: center;
-    display: block;
-  }
+// .paper-card:hover {
+//     transform: scale(1.02);
+// }
+
+//   /* 确保容器不会导致卡片重叠 */
+// .container {
+//     display: block; /* 确保容器正常流动，避免子元素重叠 */
+//     padding: 20px;
+//     margin-top: 20px;
+// }
   
-  /* 按钮部分的容器 */
-  .button-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-  }
+//   /* 左侧图片部分 */
+//   .paper-left {
+//     flex: 0 1 300px; /* 固定宽度 */
+//     margin-right: 20px; /* 添加右侧间距 */
+//     height: 200px; /* 固定高度 */
+//     overflow: hidden; /* 防止图片溢出容器 */
+//   }
   
-  /* Paper 按钮 */
-  .paper {
-    background-color: #21A7EA;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    text-decoration: none !important;  /* 强制移除下划线 */
-    margin-bottom: 10px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-    width: 120px;
-    text-align: center;
-    display: inline-block;  /* 确保按钮样式正常显示 */
-  }
+//   .paper-image {
+//     width: 100%; /* 图片占据整个容器宽度 */
+//     height: 100%; /* 图片占据整个容器高度 */
+//     border-radius: 8px;
+//     object-fit: cover; /* 确保图片保持宽高比，不变形，裁剪溢出的部分 */
+//   }
   
-  .paper:hover {
-    background-color: #1C8AD6;  /* 悬停效果 */
-  }
+//   /* 右侧文本部分 */
+//   .paper-right {
+//     flex: 1; /* 右侧文本部分占据剩余的空间 */
+//     padding-left: 20px;
+//   }
   
-  /* Code 按钮 */
-  .code {
-    background-color: #0297B1;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    text-decoration: none !important;  /* 强制移除下划线 */
-    margin-bottom: 10px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-    width: 120px;
-    text-align: center;
-    display: inline-block;  /* 确保按钮样式正常显示 */
-  }
+//   .paper-right h3 {
+//     margin: 0;
+//     font-size: 18px;
+//     font-weight: bold;
+//     color: #333;
+//   }
   
-  .code:hover {
-    background-color: #02708A;  /* 悬停效果 */
-  }
+//   .paper-meta {
+//     font-size: 14px;
+//     color: #555;
+//     margin: 5px 0;
+//   }
+  
+//   .paper-meta .meta-item {
+//     margin-right: 10px;
+//   }
+  
+//   .tags {
+//     margin: 10px 0;
+//   }
+  
+//   .tag {
+//     display: inline-block;
+//     padding: 5px 12px;
+//     background-color: #eef;
+//     color: #0056b3;
+//     border-radius: 16px;
+//     font-size: 12px;
+//     margin-right: 10px;
+//   }
+  
+//   .paper-stats {
+//     margin-top: 10px;
+//   }
+  
+//   .stars {
+//     font-size: 18px;
+//     font-weight: bold;
+//   }
+  
+//   .rate {
+//     font-size: 14px;
+//     color: #777;
+//   }
+  
+// /* 星标部分 */
+// .stars-box {
+//     margin-bottom: 8px;
+//     text-align: center;
+//     padding: 10px;
+//     border: 1px solid #ddd;
+//     border-radius: 12px;
+//     background-color: #f0f0f0;
+//     width: 120px;
+//   }
+  
+//   /* 星标/小时显示 */
+//   .rate {
+//     margin-top: 4px;
+//     font-size: 14px;
+//     color: #777;
+//     text-align: center;
+//     display: block;
+//   }
+  
+//   /* 按钮部分的容器 */
+//   .button-group {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin-top: 10px;
+//   }
+  
+//   /* Paper 按钮 */
+//   .paper {
+//     background-color: #21A7EA;
+//     color: white;
+//     padding: 10px 15px;
+//     border-radius: 8px;
+//     text-decoration: none !important;  /* 强制移除下划线 */
+//     margin-bottom: 10px;
+//     font-size: 14px;
+//     transition: background-color 0.3s ease;
+//     width: 120px;
+//     text-align: center;
+//     display: inline-block;  /* 确保按钮样式正常显示 */
+//   }
+  
+//   .paper:hover {
+//     background-color: #1C8AD6;  /* 悬停效果 */
+//   }
+  
+//   /* Code 按钮 */
+//   .code {
+//     background-color: #0297B1;
+//     color: white;
+//     padding: 10px 15px;
+//     border-radius: 8px;
+//     text-decoration: none !important;  /* 强制移除下划线 */
+//     margin-bottom: 10px;
+//     font-size: 14px;
+//     transition: background-color 0.3s ease;
+//     width: 120px;
+//     text-align: center;
+//     display: inline-block;  /* 确保按钮样式正常显示 */
+//   }
+  
+//   .code:hover {
+//     background-color: #02708A;  /* 悬停效果 */
+//   }
